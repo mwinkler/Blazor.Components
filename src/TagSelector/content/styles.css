@@ -1,0 +1,10 @@
+﻿
+.uic-tag-selector { position: relative; border: 1px solid #ccc; }
+.uic-tag-selector__box > span { background-color: #ccc; padding: 2px 4px; margin: 0 5px; }
+.uic-tag-selector__box > span > span { cursor: pointer; }
+.uic-tag-selector__item--selected { background-color: #ccc; }
+.uic-tag-selector__dropdown { border: 1px solid #ccc; position: absolute; top: 100%; left: -1px; right: -1px; display: none; background-color: #fff; }
+.uic-tag-selector__dropdown:hover .uic-tag-selector__item--selected { background-color: initial; }
+.uic-tag-selector__dropdown > div { cursor: pointer; }
+.uic-tag-selector__dropdown > div:hover { background-color: #ccc !important; }
+.uic-tag-selector--open > .uic-tag-selector__dropdown { display: block; }

@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Blazor.Hosting;
 
-namespace demo.App
+namespace TagSelector.Sample.App
 {
     public class Program
     {

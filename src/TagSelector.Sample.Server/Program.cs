@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 
-namespace demo.Server
+namespace TagSelector.Sample.Server
 {
     public class Program
     {

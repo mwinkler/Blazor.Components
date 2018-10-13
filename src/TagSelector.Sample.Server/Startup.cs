@@ -1,12 +1,12 @@
+using System.Linq;
+using System.Net.Mime;
 using Microsoft.AspNetCore.Blazor.Server;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.ResponseCompression;
 using Microsoft.Extensions.DependencyInjection;
-using System.Linq;
-using System.Net.Mime;
 
-namespace demo.Server
+namespace TagSelector.Sample.Server
 {
     public class Startup
     {

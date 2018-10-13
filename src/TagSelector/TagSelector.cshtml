@@ -1,0 +1,114 @@
+﻿@using Microsoft.JSInterop
+
+<div class="uic-tag-selector @(_selectionOpen ? "uic-tag-selector--open" : "")">
+    <div class="uic-tag-selector__box">
+        @if (SelectedTags != null)
+        {
+            foreach (var item in SelectedTags)
+            {
+                <span>
+                    @item.Value
+                    <span onclick=@(() => RemoveSelectedTag(item))>X</span>
+                </span>
+            }
+        }
+        <input type="text" onfocus=@OpenSelection onblur=@CloseSelection onkeyup=@OnTextKeypress ref="TextBox" />
+    </div>
+    <div class="uic-tag-selector__dropdown">
+        
+        @foreach (var item in _selectableItems)
+        {
+            <div class="@(_selectableItems.IndexOf(item) == _selectableIndex ? "uic-tag-selector__item--selected" : "")" onmousedown=@(() => AddSelectedTag(item, true))>@item.Value</div>
+        }
+        
+    </div>
+</div>
+
+@functions
+{
+
+    [Parameter] IEnumerable<TagSelectorItem> SelectableTags { get; set; }
+
+    [Parameter] IList<TagSelectorItem> SelectedTags { get; set; } = new List<TagSelectorItem>();
+
+    private bool _selectionOpen;
+    private string _filterText;
+    private ElementRef TextBox;
+    private int _selectableIndex = 0;
+    private IList<TagSelectorItem> _selectableItems = new List<TagSelectorItem>();
+
+    public void AddSelectedTag(TagSelectorItem item, bool closeSelection)
+    {
+        SelectedTags.Add(item);
+        _filterText = "";
+        UpdateSelectableItems();
+        _selectionOpen = !closeSelection;
+        JSRuntime.Current.InvokeAsync<object>("tagSelectorComponent.setValue", TextBox, "");
+    }
+
+    public void RemoveSelectedTag(TagSelectorItem item)
+    {
+        SelectedTags.Remove(item);
+    }
+
+    public void OpenSelection()
+    {
+        UpdateSelectableItems();
+        _selectableIndex = 0;
+        _selectionOpen = true;
+    }
+
+    public void CloseSelection()
+    {
+        _selectionOpen = false;
+    }
+
+    private async Task OnTextKeypress(UIKeyboardEventArgs e)
+    {
+        switch (e.Key)
+        {
+            case "ArrowUp":
+                _selectableIndex--;
+                break;
+
+            case "ArrowDown":
+                _selectableIndex++;
+                break;
+
+            case "Enter":
+                if (_selectableItems.Any())
+                {
+                    AddSelectedTag(_selectableItems[_selectableIndex], false);
+                }
+                break;
+
+            case "Escape":
+                await JSRuntime.Current.InvokeAsync<object>("tagSelectorComponent.blur", TextBox);
+                break;
+
+            default:
+                _filterText = await JSRuntime.Current.InvokeAsync<string>("tagSelectorComponent.getValue", TextBox);
+                UpdateSelectableItems();
+                break;
+        }
+
+        // check selectable index bounds
+        if (_selectableIndex < 0)
+        {
+            _selectableIndex = _selectableItems.Count - 1;
+        }
+        else if (_selectableIndex >= _selectableItems.Count)
+        {
+            _selectableIndex = 0;
+        }
+    }
+
+    private void UpdateSelectableItems()
+    {
+        _selectableItems = (SelectableTags ?? _selectableItems)
+            .Where(item => SelectedTags.All(sitem => sitem.Key != item.Key)) // exclude selected
+            .Where(item => string.IsNullOrEmpty(_filterText) || item.Value?.IndexOf(_filterText, StringComparison.OrdinalIgnoreCase) != -1)
+            .ToList();
+    }
+
+}
