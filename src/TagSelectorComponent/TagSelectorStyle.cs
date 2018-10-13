@@ -8,12 +8,14 @@ namespace TagSelectorComponent
             SelectorClass = "form-control",
             SelectedTagClass = "badge badge-primary",
             DropdownClass = "dropdown-menu",
-            DropdownItemClass = "dropdown-item"
+            DropdownItemClass = "dropdown-item",
+            InputboxClass = ""
         };
 
         public string SelectorClass { get; set; }
         public string SelectedTagClass { get; set; }
         public string DropdownClass { get; set; }
         public string DropdownItemClass { get; set; }
+        public string InputboxClass { get; set; }
     }
 }

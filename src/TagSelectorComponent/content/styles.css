@@ -18,4 +18,4 @@ div.default.uic-tag-selector__item--selected { background-color:#ccc; }
 
 /* bootstrap style */
 .uic-tag-selector.form-control { padding:0.3rem; }
-.uic-tag-selector__box > span.badge { font-size:0.9rem; margin-right:0.3rem; }
+.uic-tag-selector__box > span.badge { font-size:0.9rem; margin-right:0.3rem; font-weight:normal; }
