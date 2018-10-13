@@ -1,7 +1,10 @@
 ﻿@page "/TagSelector"
 @using TagSelectorComponent
 
-<TagSelector SelectableTags=@Items></TagSelector>
+<div style="display: flex; align-items: center;">
+    <TagSelector SelectableTags=@Items></TagSelector>
+    <input type="text" class="form-control" />
+</div>
 
 @functions {
 
