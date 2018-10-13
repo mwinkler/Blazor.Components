@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2046
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TagSelector", "src\TagSelector\TagSelector.csproj", "{D676569B-0DFA-4AFF-9168-4AF86BBF9F06}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TagSelectorComponent", "src\TagSelectorComponent\TagSelectorComponent.csproj", "{D676569B-0DFA-4AFF-9168-4AF86BBF9F06}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Components.Sample.App", "src\Components.Sample.App\Components.Sample.App.csproj", "{FC041EDF-CBE3-46E4-8E81-0AAB15C8A161}"
 EndProject

@@ -1,0 +1,18 @@
+﻿@page "/TagSelector"
+@using TagSelectorComponent
+
+<TagSelector SelectableTags=@Items></TagSelector>
+
+@functions {
+
+    IEnumerable<TagSelectorItem> Items = new[]
+    {
+        new TagSelectorItem("Item1", "Item 1"),
+        new TagSelectorItem("Item2", "Item 2"),
+        new TagSelectorItem("Item3", "Item 3"),
+        new TagSelectorItem("Item4", "Item 4"),
+        new TagSelectorItem("Item5", "Item 5"),
+        new TagSelectorItem("Item6", "Item 6"),
+    };
+
+}

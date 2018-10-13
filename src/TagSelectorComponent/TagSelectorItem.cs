@@ -1,4 +1,4 @@
-﻿namespace TagSelector
+﻿namespace TagSelectorComponent
 {
     public class TagSelectorItem
     {
