@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Blazor.Builder;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace TagSelector.Sample.App
+namespace Components.Sample.App
 {
     public class Startup
     {

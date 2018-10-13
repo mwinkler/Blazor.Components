@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.ResponseCompression;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace TagSelector.Sample.Server
+namespace Components.Sample.Server
 {
     public class Startup
     {
