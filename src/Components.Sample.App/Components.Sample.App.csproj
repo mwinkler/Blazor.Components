@@ -16,9 +16,13 @@
 
   <ItemGroup>
     <ProjectReference Include="..\TagSelectorComponent\TagSelectorComponent.csproj" />
+    <ProjectReference Include="..\TreeComponent\TreeComponent.csproj" />
   </ItemGroup>
 
   <ItemGroup>
+    <Content Update="Pages\TreeSample.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
     <Content Update="Pages\TagSelectorSample.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>

@@ -1,0 +1,26 @@
+﻿
+@typeparam TItem
+
+<div class="">
+    
+    @foreach (var item in Items ?? Array.Empty<TItem>())
+    {
+        <div>
+            <div>
+                @ItemTemplate(item)
+            </div>
+            <Tree Items=@ChildSelector(item) ItemTemplate=@ItemTemplate ChildSelector=@ChildSelector></Tree>
+        </div>
+    }
+
+</div>
+
+@functions {
+
+    [Parameter] IEnumerable<TItem> Items { get; set; }
+
+    [Parameter] RenderFragment<TItem> ItemTemplate { get; set; }
+
+    [Parameter] Func<TItem, IEnumerable<TItem>> ChildSelector { get; set; }
+
+}
