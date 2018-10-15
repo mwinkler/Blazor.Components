@@ -1,6 +1,6 @@
 ﻿@page "/Tree"
 
-<Tree Nodes=@Items ChildSelector=@(item => item.Childs) OnNodeSelected=@OnSelect SelectedNodes=@SelectedItem ExpandedNodes=@ExpandedNodes>
+<Tree Nodes=@Items ChildSelector=@(item => item.Childs) OnNodeSelected=@OnSelect SelectedNodes=@SelectedItem ExpandedNodes=@ExpandedNodes HasChildNodes=@(item => item.Childs?.Any() == true)>
     <TitleTemplate>@context.Text</TitleTemplate>
 </Tree>
 

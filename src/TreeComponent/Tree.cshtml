@@ -7,13 +7,22 @@
     {
         var nodeExpanded = ExpandedNodes.Contains(node);
         var nodeSelected = SelectedNodes.Contains(node);
-        
+        var hasChilds = HasChildNodes(node);
+
         <div>
-            <span onclick=@(() => ToggleNode(node, !nodeExpanded))><i class="@(nodeExpanded ? Style.CollapseNodeIconClass : Style.ExpandNodeIconClass)"></i></span>
             
-            <span class="@Style.NodeTitleClass @(nodeSelected ? Style.NodeTitleSelectedClass : "")" onclick=@(async () => await OnTitleClick(node))>
-                @TitleTemplate(node)
-            </span>
+            @if (hasChilds)
+            {
+                <span class="uic-tree__icon" onclick=@(() => ToggleNode(node, !nodeExpanded))>
+                    <i class="@(nodeExpanded ? Style.CollapseNodeIconClass : Style.ExpandNodeIconClass)"></i>
+                </span>
+            }
+
+            <div class="uic-tree__title">
+                <span class="@Style.NodeTitleClass @(nodeSelected ? Style.NodeTitleSelectedClass : "")" onclick=@(async () => await OnTitleClick(node))>
+                    @TitleTemplate(node)
+                </span>
+            </div>
 
             <Tree 
                 Nodes=@ChildSelector(node) 
@@ -22,7 +31,8 @@
                 ExpandedNodes=@ExpandedNodes
                 OnNodeSelected=@OnChildNodeSelected
                 SelectedNodes=@SelectedNodes
-                Visible=@nodeExpanded>
+                Visible=@nodeExpanded
+                HasChildNodes=@HasChildNodes>
             </Tree>
             
         </div>
@@ -48,7 +58,9 @@
 
     [Parameter] bool Visible { get; set; } = true;
 
-    public void ToggleNode(TNode node, bool expand)
+    [Parameter] Func<TNode, bool> HasChildNodes { get; set; } = node => true;
+
+    private void ToggleNode(TNode node, bool expand)
     {
         var expanded = ExpandedNodes.Contains(node);
 
