@@ -1,21 +1,29 @@
 ﻿
 @typeparam TNode
 
-<div class="">
+<div class="uic-tree">
     
     @foreach (var node in Nodes ?? Enumerable.Empty<TNode>())
     {
+        var nodeExpanded = ExpandedNodes.Contains(node);
+        var nodeSelected = SelectedNodes.Contains(node);
+        
         <div>
-            <span onclick=@(() => OnTitleClick(node))>
-                @ItemTemplate(node)
+            <span onclick=@(() => ToggleNode(node, !nodeExpanded))><i class="@(nodeExpanded ? Style.CollapseNodeIconClass : Style.ExpandNodeIconClass)"></i></span>
+            
+            <span class="@Style.NodeTitleClass @(nodeSelected ? Style.NodeTitleSelectedClass : "")" onclick=@(async () => await OnTitleClick(node))>
+                @TitleTemplate(node)
             </span>
-            @if (ExpandedNodes.Contains(node))
+
+            @if (nodeExpanded)
             {
                 <Tree 
                     Nodes=@ChildSelector(node) 
-                    ItemTemplate=@ItemTemplate 
+                    TitleTemplate=@TitleTemplate 
                     ChildSelector=@ChildSelector
-                    ExpandedNodes=@ExpandedNodes>
+                    ExpandedNodes=@ExpandedNodes
+                    OnNodeSelected=@OnNodeSelected
+                    SelectedNodes=@SelectedNodes>
                 </Tree>
             }
         </div>
@@ -27,21 +35,40 @@
 
     [Parameter] IEnumerable<TNode> Nodes { get; set; }
 
-    [Parameter] RenderFragment<TNode> ItemTemplate { get; set; }
+    [Parameter] RenderFragment<TNode> TitleTemplate { get; set; }
+
+    [Parameter] IList<TNode> SelectedNodes { get; set; }
 
     [Parameter] Func<TNode, IEnumerable<TNode>> ChildSelector { get; set; }
 
     [Parameter] IList<TNode> ExpandedNodes { get; set; } = new List<TNode>();
 
-    private void OnTitleClick(TNode node)
+    [Parameter] Func<TNode, Task> OnNodeSelected { get; set; }
+
+    [Parameter] TreeStyle Style { get; set; } = TreeStyle.Bootstrap;
+
+    public void ToggleNode(TNode node, bool expand)
     {
-        if (ExpandedNodes.Contains(node))
+        var expanded = ExpandedNodes.Contains(node);
+
+        if (expanded && !expand)
         {
             ExpandedNodes.Remove(node);
         }
-        else
+        else if (!expanded && expand)
         {
             ExpandedNodes.Add(node);
+        }
+    }
+
+    private async Task OnTitleClick(TNode node)
+    {
+        SelectedNodes.Clear();
+        SelectedNodes.Add(node);
+
+        if (OnNodeSelected != null)
+        {
+            await OnNodeSelected(node);
         }
     }
 

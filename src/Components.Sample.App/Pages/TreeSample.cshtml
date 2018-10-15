@@ -1,9 +1,13 @@
 ﻿@page "/Tree"
-@using TreeComponent
 
-<Tree Nodes=@Items ChildSelector=@(item => item.Childs) ExpandedNodes=@ExpandedNodes>
-    <ItemTemplate>@context.Text</ItemTemplate>
+<Tree Nodes=@Items ChildSelector=@(item => item.Childs) OnNodeSelected=@OnSelect SelectedNodes=@SelectedItem ExpandedNodes=@ExpandedNodes>
+    <TitleTemplate>@context.Text</TitleTemplate>
 </Tree>
+
+Selected: @string.Join(", ", SelectedItem.Select(i => i.Text))<br />
+Expanded: @string.Join(", ", ExpandedNodes.Select(i => i.Text))<br />
+
+<button onclick=@StateHasChanged>Update</button>
 
 @functions {
 
@@ -34,16 +38,38 @@
 
             }},
         new Item { Text = "Item 3" },
-        new Item { Text = "Item 4" },
+        new Item { 
+            Text = "Item 4",
+            Childs = new []
+            {
+                new Item { Text = "Item 4.1" },
+                new Item { Text = "Item 4.2", Childs = new []
+                {
+                    new Item { Text = "Item 4.2.1" },
+                    new Item { Text = "Item 4.2.2" },
+                    new Item { Text = "Item 4.2.3" },
+                    new Item { Text = "Item 4.2.4" }
+                } },
+            new Item { Text = "Item 4.3" },
+            new Item { Text = "Item 4.4" }
+
+            } },
         new Item { Text = "Item 5" },
         new Item { Text = "Item 6" },
     };
 
     List<Item> ExpandedNodes = new List<Item>();
+    List<Item> SelectedItem = new List<Item>();
 
     protected override void OnInit()
     {
         ExpandedNodes.AddRange(Items.Skip(1).Take(1));
+        ExpandedNodes.AddRange(Items.Skip(1).Take(1).First().Childs.Skip(1).Take(1));
+    }
+
+    async Task OnSelect(Item item)
+    {
+        Console.WriteLine($"Node '{item.Text}' selected");
     }
 
 }
