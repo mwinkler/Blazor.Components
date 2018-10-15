@@ -1,7 +1,7 @@
 ﻿@page "/Tree"
 @using TreeComponent
 
-<Tree Items=@Items ChildSelector=@(item => item?.Childs)>
+<Tree Nodes=@Items ChildSelector=@(item => item.Childs) ExpandedNodes=@ExpandedNodes>
     <ItemTemplate>@context.Text</ItemTemplate>
 </Tree>
 
@@ -21,7 +21,14 @@
             Childs = new []
             {
                 new Item { Text = "Item 2.1" },
-                new Item { Text = "Item 2.2" },
+                new Item { Text = "Item 2.2", Childs = new []
+                    {
+                        new Item { Text = "Item 2.2.1" },
+                        new Item { Text = "Item 2.2.2" },
+                        new Item { Text = "Item 2.2.3" },
+                        new Item { Text = "Item 2.2.4" }
+
+                    } },
                 new Item { Text = "Item 2.3" },
                 new Item { Text = "Item 2.4" }
 
@@ -30,6 +37,13 @@
         new Item { Text = "Item 4" },
         new Item { Text = "Item 5" },
         new Item { Text = "Item 6" },
-};
+    };
+
+    List<Item> ExpandedNodes = new List<Item>();
+
+    protected override void OnInit()
+    {
+        ExpandedNodes.AddRange(Items.Skip(1).Take(1));
+    }
 
 }

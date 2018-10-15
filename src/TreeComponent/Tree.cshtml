@@ -1,15 +1,23 @@
 ﻿
-@typeparam TItem
+@typeparam TNode
 
 <div class="">
     
-    @foreach (var item in Items ?? Array.Empty<TItem>())
+    @foreach (var node in Nodes ?? Enumerable.Empty<TNode>())
     {
         <div>
-            <div>
-                @ItemTemplate(item)
-            </div>
-            <Tree Items=@ChildSelector(item) ItemTemplate=@ItemTemplate ChildSelector=@ChildSelector></Tree>
+            <span onclick=@(() => OnTitleClick(node))>
+                @ItemTemplate(node)
+            </span>
+            @if (ExpandedNodes.Contains(node))
+            {
+                <Tree 
+                    Nodes=@ChildSelector(node) 
+                    ItemTemplate=@ItemTemplate 
+                    ChildSelector=@ChildSelector
+                    ExpandedNodes=@ExpandedNodes>
+                </Tree>
+            }
         </div>
     }
 
@@ -17,10 +25,24 @@
 
 @functions {
 
-    [Parameter] IEnumerable<TItem> Items { get; set; }
+    [Parameter] IEnumerable<TNode> Nodes { get; set; }
 
-    [Parameter] RenderFragment<TItem> ItemTemplate { get; set; }
+    [Parameter] RenderFragment<TNode> ItemTemplate { get; set; }
 
-    [Parameter] Func<TItem, IEnumerable<TItem>> ChildSelector { get; set; }
+    [Parameter] Func<TNode, IEnumerable<TNode>> ChildSelector { get; set; }
+
+    [Parameter] IList<TNode> ExpandedNodes { get; set; } = new List<TNode>();
+
+    private void OnTitleClick(TNode node)
+    {
+        if (ExpandedNodes.Contains(node))
+        {
+            ExpandedNodes.Remove(node);
+        }
+        else
+        {
+            ExpandedNodes.Add(node);
+        }
+    }
 
 }
