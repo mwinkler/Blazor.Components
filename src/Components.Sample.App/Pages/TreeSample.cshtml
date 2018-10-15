@@ -4,10 +4,12 @@
     <TitleTemplate>@context.Text</TitleTemplate>
 </Tree>
 
-Selected: @string.Join(", ", SelectedItem.Select(i => i.Text))<br />
-Expanded: @string.Join(", ", ExpandedNodes.Select(i => i.Text))<br />
+<p style="margin-top: 2rem">
+    Selected: @string.Join(", ", SelectedItem.Select(i => i.Text))<br />
+    Expanded: @string.Join(", ", ExpandedNodes.Select(i => i.Text))<br />
 
-<button onclick=@StateHasChanged>Update</button>
+    <button onclick=@StateHasChanged>Update</button>
+</p>
 
 @functions {
 
@@ -69,7 +71,7 @@ Expanded: @string.Join(", ", ExpandedNodes.Select(i => i.Text))<br />
 
     async Task OnSelect(Item item)
     {
-        Console.WriteLine($"Node '{item.Text}' selected");
+        StateHasChanged();
     }
 
 }

@@ -13,13 +13,13 @@
             
             @if (hasChilds)
             {
-                <span class="uic-tree__icon" onclick=@(() => ToggleNode(node, !nodeExpanded))>
+                <span class="uic-tree__icon" onclick=@(async () => await OnToggleNode(node, !nodeExpanded))>
                     <i class="@(nodeExpanded ? Style.CollapseNodeIconClass : Style.ExpandNodeIconClass)"></i>
                 </span>
             }
 
             <div class="uic-tree__title">
-                <span class="@Style.NodeTitleClass @(nodeSelected ? Style.NodeTitleSelectedClass : "")" onclick=@(async () => await OnTitleClick(node))>
+                <span class="@Style.NodeTitleClass @(nodeSelected ? Style.NodeTitleSelectedClass : "")" onclick=@(async () => await OnSelectNode(node))>
                     @TitleTemplate(node)
                 </span>
             </div>
@@ -63,7 +63,7 @@
 
     [Parameter] Func<TNode, bool> HasChildNodes { get; set; } = node => true;
 
-    private void ToggleNode(TNode node, bool expand)
+    private async Task OnToggleNode(TNode node, bool expand)
     {
         var expanded = ExpandedNodes.Contains(node);
 
@@ -77,14 +77,13 @@
         }
     }
 
-    private async Task OnTitleClick(TNode node)
+    private async Task OnSelectNode(TNode node)
     {
         SelectedNodes.Clear();
         SelectedNodes.Add(node);
 
 
         await OnNodeSelected?.Invoke(node);
-
     }
 
     private async Task OnChildNodeSelected(TNode item)
