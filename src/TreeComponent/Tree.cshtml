@@ -1,7 +1,7 @@
 ﻿
 @typeparam TNode
 
-<div class="uic-tree">
+<div class="uic-tree" style="display:@(Visible ? "block" : "none")">
     
     @foreach (var node in Nodes ?? Enumerable.Empty<TNode>())
     {
@@ -15,17 +15,16 @@
                 @TitleTemplate(node)
             </span>
 
-            @if (nodeExpanded)
-            {
-                <Tree 
-                    Nodes=@ChildSelector(node) 
-                    TitleTemplate=@TitleTemplate 
-                    ChildSelector=@ChildSelector
-                    ExpandedNodes=@ExpandedNodes
-                    OnNodeSelected=@OnNodeSelected
-                    SelectedNodes=@SelectedNodes>
-                </Tree>
-            }
+            <Tree 
+                Nodes=@ChildSelector(node) 
+                TitleTemplate=@TitleTemplate 
+                ChildSelector=@ChildSelector
+                ExpandedNodes=@ExpandedNodes
+                OnNodeSelected=@OnChildNodeSelected
+                SelectedNodes=@SelectedNodes
+                Visible=@nodeExpanded>
+            </Tree>
+            
         </div>
     }
 
@@ -47,6 +46,8 @@
 
     [Parameter] TreeStyle Style { get; set; } = TreeStyle.Bootstrap;
 
+    [Parameter] bool Visible { get; set; } = true;
+
     public void ToggleNode(TNode node, bool expand)
     {
         var expanded = ExpandedNodes.Contains(node);
@@ -66,10 +67,16 @@
         SelectedNodes.Clear();
         SelectedNodes.Add(node);
 
-        if (OnNodeSelected != null)
-        {
-            await OnNodeSelected(node);
-        }
+
+        await OnNodeSelected?.Invoke(node);
+
+    }
+
+    private async Task OnChildNodeSelected(TNode item)
+    {
+        StateHasChanged();
+
+        await OnNodeSelected?.Invoke(item);
     }
 
 }
