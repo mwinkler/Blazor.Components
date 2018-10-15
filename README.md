@@ -16,3 +16,14 @@ Work in progress!
 ```
 
 [See example](https://github.com/mwinkler/Blazor.Components/blob/master/src/Components.Sample.App/Pages/TreeSample.cshtml)
+
+
+## Tag Selector
+
+![](https://raw.githubusercontent.com/mwinkler/Blazor.Components/master/doc/tag-selector.gif)
+
+```html
+<TagSelector SelectableTags=@Items></TagSelector>
+```
+
+[See example](https://github.com/mwinkler/Blazor.Components/blob/master/src/Components.Sample.App/Pages/TagSelectorSample.cshtml)
