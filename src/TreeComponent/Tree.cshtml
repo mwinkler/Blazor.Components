@@ -1,7 +1,7 @@
 ﻿
 @typeparam TNode
 
-<div class="uic-tree" style="display:@(Visible ? "block" : "none")">
+<div class="uic-tree @(Visible ? "" : "uic-tree--hidden")">
     
     @foreach (var node in Nodes ?? Enumerable.Empty<TNode>())
     {
@@ -24,16 +24,19 @@
                 </span>
             </div>
 
-            <Tree 
-                Nodes=@ChildSelector(node) 
-                TitleTemplate=@TitleTemplate 
-                ChildSelector=@ChildSelector
-                ExpandedNodes=@ExpandedNodes
-                OnNodeSelected=@OnChildNodeSelected
-                SelectedNodes=@SelectedNodes
-                Visible=@nodeExpanded
-                HasChildNodes=@HasChildNodes>
-            </Tree>
+            @if (hasChilds)
+            {
+                <Tree 
+                    Nodes=@ChildSelector(node) 
+                    TitleTemplate=@TitleTemplate 
+                    ChildSelector=@ChildSelector
+                    ExpandedNodes=@ExpandedNodes
+                    OnNodeSelected=@OnChildNodeSelected
+                    SelectedNodes=@SelectedNodes
+                    Visible=@nodeExpanded
+                    HasChildNodes=@HasChildNodes>
+                </Tree>
+            }
             
         </div>
     }
