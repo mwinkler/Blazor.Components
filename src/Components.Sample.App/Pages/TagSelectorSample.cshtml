@@ -1,21 +1,14 @@
 ﻿@page "/TagSelector"
-@using TagSelectorComponent
 
-<div style="display: flex; align-items: center;">
-    <TagSelector SelectableTags=@Items></TagSelector>
-    @*<input type="text" class="form-control" />*@
-</div>
+<TagSelector SelectableTags=@Tags SelectedTags=@Selected Filter=@((item,term) => item.Contains(term)) OnTagSelected=@(item => StateHasChanged()) OnTagRemoved=@(item => StateHasChanged())>
+    <TagTemplate>@context</TagTemplate>
+</TagSelector>
+
+Selected: @Selected.Count
 
 @functions {
 
-    IEnumerable<TagSelectorItem> Items = new[]
-    {
-        new TagSelectorItem("Item1", "Item 1"),
-        new TagSelectorItem("Item2", "Item 2"),
-        new TagSelectorItem("Item3", "Item 3"),
-        new TagSelectorItem("Item4", "Item 4"),
-        new TagSelectorItem("Item5", "Item 5"),
-        new TagSelectorItem("Item6", "Item 6"),
-    };
+    IEnumerable<string> Tags = new[] { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5", "Item 6" };
+    IList<string> Selected = new List<string>();
 
 }

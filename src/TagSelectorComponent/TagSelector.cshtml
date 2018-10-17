@@ -1,5 +1,7 @@
 ﻿@using Microsoft.JSInterop
 
+@typeparam TItem
+
 <div class="uic-tag-selector @Style.SelectorClass @(_selectionOpen ? "uic-tag-selector--open" : "")">
     <div class="uic-tag-selector__box">
         @if (SelectedTags != null)
@@ -7,7 +9,7 @@
             foreach (var item in SelectedTags)
             {
                 <span class="@Style.SelectedTagClass">
-                    @item.Value
+                    @TagTemplate(item)
                     <span onclick=@(() => RemoveSelectedTag(item))>X</span>
                 </span>
             }
@@ -18,7 +20,9 @@
         
         @foreach (var item in _selectableItems)
         {
-            <div class="@Style.DropdownItemClass @(_selectableItems.IndexOf(item) == _selectableIndex ? "uic-tag-selector__item--selected " + Style.DropdownItemHoverClass : "")" onmousedown=@(() => AddSelectedTag(item, true))>@item.Value</div>
+            <div class="@Style.DropdownItemClass @(_selectableItems.IndexOf(item) == _selectableIndex ? "uic-tag-selector__item--selected " + Style.DropdownItemHoverClass : "")" onmousedown=@(() => AddSelectedTag(item, true))>
+                @TagTemplate(item)
+            </div>
         }
         
     </div>
@@ -26,40 +30,50 @@
 
 @functions {
 
-    [Parameter] IEnumerable<TagSelectorItem> SelectableTags { get; set; }
+    [Parameter] IEnumerable<TItem> SelectableTags { get; set; }
 
-    [Parameter] IList<TagSelectorItem> SelectedTags { get; set; } = new List<TagSelectorItem>();
+    [Parameter] IList<TItem> SelectedTags { get; set; } = new List<TItem>();
 
     [Parameter] TagSelectorStyle Style { get; set; } = TagSelectorStyle.Bootstrap;
+
+    [Parameter] RenderFragment<TItem> TagTemplate { get; set; }
+
+    [Parameter] Func<TItem, string, bool> Filter { get; set; }
+
+    [Parameter] Action<TItem> OnTagSelected { get; set; }
+
+    [Parameter] Action<TItem> OnTagRemoved { get; set; }
 
     private bool _selectionOpen;
     private string _filterText;
     private ElementRef TextBox;
     private int _selectableIndex = 0;
-    private IList<TagSelectorItem> _selectableItems = new List<TagSelectorItem>();
+    private IList<TItem> _selectableItems = new List<TItem>();
 
-    public void AddSelectedTag(TagSelectorItem item, bool closeSelection)
+    private void AddSelectedTag(TItem item, bool closeSelection)
     {
         SelectedTags.Add(item);
         _filterText = "";
         UpdateSelectableItems();
         _selectionOpen = !closeSelection;
         JSRuntime.Current.InvokeAsync<object>("tagSelectorComponent.setValue", TextBox, "");
+        OnTagSelected?.Invoke(item);
     }
 
-    public void RemoveSelectedTag(TagSelectorItem item)
+    private void RemoveSelectedTag(TItem item)
     {
         SelectedTags.Remove(item);
+        OnTagRemoved?.Invoke(item);
     }
 
-    public void OpenSelection()
+    private void OpenSelection()
     {
         UpdateSelectableItems();
         _selectableIndex = 0;
         _selectionOpen = true;
     }
 
-    public void CloseSelection()
+    private void CloseSelection()
     {
         _selectionOpen = false;
     }
@@ -107,8 +121,8 @@
     private void UpdateSelectableItems()
     {
         _selectableItems = (SelectableTags ?? _selectableItems)
-            .Where(item => SelectedTags.All(sitem => sitem.Key != item.Key)) // exclude selected
-            .Where(item => string.IsNullOrEmpty(_filterText) || item.Value?.IndexOf(_filterText, StringComparison.OrdinalIgnoreCase) != -1)
+            .Except(SelectedTags)
+            .Where(item => Filter == null || string.IsNullOrEmpty(_filterText) || Filter(item, _filterText))
             .ToList();
     }
 

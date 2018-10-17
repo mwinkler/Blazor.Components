@@ -20,11 +20,12 @@ Work in progress!
 **Features / Tasks**
 - [x] Generic data support
 - [x] Item templating
-- [x] Styling (currently Bootstrap/Font Awesome)
+- [x] Styling (Bootstrap/Font Awesome)
 - [ ] Subtree loading indicator (lazy loading)
 - [ ] Disabling selection of nodes
 - [x] Single selection
 - [ ] Multi selection (Checkboxes)
+- [ ] Event population (OnSelect, OnExpand, ...)
 
 
 ## Tag Selector
@@ -32,15 +33,18 @@ Work in progress!
 ![](https://raw.githubusercontent.com/mwinkler/Blazor.Components/master/doc/tag-selector.gif)
 
 ```html
-<TagSelector SelectableTags=@Items></TagSelector>
+<TagSelector SelectableTags=@Tags SelectedTags=@Selected Filter=@((item,term) => item.Contains(term))>
+    <TagTemplate>@context</TagTemplate>
+</TagSelector>
 ```
 
 [See example](https://github.com/mwinkler/Blazor.Components/blob/master/src/Components.Sample.App/Pages/TagSelectorSample.cshtml)
 
 **Features / Tasks**
-- [ ] Generic data support
-- [ ] Item templating
+- [x] Generic data support
+- [x] Item templating
 - [x] Autocomplete
 - [x] Selection via keys (up/down/enter)
-- [x] Styling (currently Bootstrap)
+- [x] Styling (Bootstrap)
 - [ ] Disabling selection of items
+- [x] Event population (OnSelect, OnRemove)
