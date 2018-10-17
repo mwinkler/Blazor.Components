@@ -7,7 +7,7 @@ namespace TagSelectorComponent
         {
             SelectorClass = "form-control",
             SelectedTagClass = "badge badge-primary",
-            DropdownClass = "dropdown-menu",
+            DropdownClass = "dropdown-menu shadow",
             DropdownItemClass = "dropdown-item",
             DropdownItemHoverClass = "bg-primary text-white",
             InputboxClass = ""
