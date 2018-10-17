@@ -18,7 +18,7 @@
         
         @foreach (var item in _selectableItems)
         {
-            <div class="@Style.DropdownItemClass @(_selectableItems.IndexOf(item) == _selectableIndex ? "uic-tag-selector__item--selected" : "")" onmousedown=@(() => AddSelectedTag(item, true))>@item.Value</div>
+            <div class="@Style.DropdownItemClass @(_selectableItems.IndexOf(item) == _selectableIndex ? "uic-tag-selector__item--selected " + Style.DropdownItemHoverClass : "")" onmousedown=@(() => AddSelectedTag(item, true))>@item.Value</div>
         }
         
     </div>

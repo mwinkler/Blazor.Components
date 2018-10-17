@@ -9,6 +9,7 @@ namespace TagSelectorComponent
             SelectedTagClass = "badge badge-primary",
             DropdownClass = "dropdown-menu",
             DropdownItemClass = "dropdown-item",
+            DropdownItemHoverClass = "bg-primary text-white",
             InputboxClass = ""
         };
 
@@ -16,6 +17,7 @@ namespace TagSelectorComponent
         public string SelectedTagClass { get; set; }
         public string DropdownClass { get; set; }
         public string DropdownItemClass { get; set; }
+        public string DropdownItemHoverClass { get; set; }
         public string InputboxClass { get; set; }
     }
 }
