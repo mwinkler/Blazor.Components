@@ -17,6 +17,15 @@ Work in progress!
 
 [See example](https://github.com/mwinkler/Blazor.Components/blob/master/src/Components.Sample.App/Pages/TreeSample.cshtml)
 
+**Features / Tasks**
+- [x] Generic data support
+- [x] Item templating
+- [x] Styling (currently Bootstrap/Font Awesome)
+- [ ] Subtree loading indicator (lazy loading)
+- [ ] Disabling selection of nodes
+- [x] Single selection
+- [ ] Multi selection (Checkboxes)
+
 
 ## Tag Selector
 
@@ -27,3 +36,11 @@ Work in progress!
 ```
 
 [See example](https://github.com/mwinkler/Blazor.Components/blob/master/src/Components.Sample.App/Pages/TagSelectorSample.cshtml)
+
+**Features / Tasks**
+- [ ] Generic data support
+- [ ] Item templating
+- [x] Autocomplete
+- [x] Selection via keys (up/down/enter)
+- [x] Styling (currently Bootstrap)
+- [ ] Disabling selection of items
