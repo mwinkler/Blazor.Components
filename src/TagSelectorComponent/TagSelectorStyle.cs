@@ -10,7 +10,8 @@ namespace TagSelectorComponent
             DropdownClass = "dropdown-menu shadow",
             DropdownItemClass = "dropdown-item",
             DropdownItemHoverClass = "bg-primary text-white",
-            InputboxClass = ""
+            InputboxClass = "",
+            RemoveTagClass = "fas fa-times"
         };
 
         public string SelectorClass { get; set; }
@@ -19,5 +20,6 @@ namespace TagSelectorComponent
         public string DropdownItemClass { get; set; }
         public string DropdownItemHoverClass { get; set; }
         public string InputboxClass { get; set; }
+        public string RemoveTagClass {get; set; }
     }
 }
