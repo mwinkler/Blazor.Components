@@ -15,7 +15,8 @@ Work in progress!
 </Tree>
 ```
 
-[See example](https://github.com/mwinkler/Blazor.Components/blob/master/src/Components.Sample.App/Pages/TreeSample.cshtml)
+[Example](https://github.com/mwinkler/Blazor.Components/blob/master/src/Components.Sample.App/Pages/TreeSample.cshtml)  
+[Nuget: MW.Blazor.Tree](https://www.nuget.org/packages/MW.Blazor.Tree/)
 
 **Features / Tasks**
 - [x] Generic data support
@@ -38,7 +39,8 @@ Work in progress!
 </TagSelector>
 ```
 
-[See example](https://github.com/mwinkler/Blazor.Components/blob/master/src/Components.Sample.App/Pages/TagSelectorSample.cshtml)
+[Example](https://github.com/mwinkler/Blazor.Components/blob/master/src/Components.Sample.App/Pages/TagSelectorSample.cshtml)  
+[Nuget: MW.Blazor.TagSelector](https://www.nuget.org/packages/MW.Blazor.TagSelector/)
 
 **Features / Tasks**
 - [x] Generic data support
