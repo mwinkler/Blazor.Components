@@ -49,7 +49,7 @@
 
     [Parameter] RenderFragment<TNode> TitleTemplate { get; set; }
 
-    [Parameter] IList<TNode> SelectedNodes { get; set; }
+    [Parameter] IList<TNode> SelectedNodes { get; set; } = new List<TNode>();
 
     [Parameter] Func<TNode, IEnumerable<TNode>> ChildSelector { get; set; }
 

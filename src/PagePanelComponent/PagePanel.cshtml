@@ -1,0 +1,11 @@
+﻿
+@foreach (var pageItem in Page)
+{
+    @pageItem
+}
+
+@functions {
+
+    [Parameter] IEnumerable<RenderFragment> Page { get; set; } = Enumerable.Empty<RenderFragment>();
+
+}
