@@ -1,5 +1,43 @@
-﻿@page "/PagePanel"
+﻿@using PagePanelComponent
+
+@page "/PagePanel"
 
 <PagePanel>
-    <Page></Page>
+    <Page CurrentPageIndex=@CurrentPage States=@Page1>
+        Page 1
+    </Page>
+    <Page CurrentPageIndex=@CurrentPage States=@Page2>
+        Page 2
+    </Page>
+    <Page CurrentPageIndex=@CurrentPage States=@Page3>
+        Page 3
+    </Page>
 </PagePanel>
+
+<button onclick=@{() => CurrentPage-- }><</button>
+<button onclick=@{() => CurrentPage++ }>></button>
+
+
+@functions {
+
+    int CurrentPage { get; set; }
+
+    IEnumerable<PageState> Page1 = new[]
+    {
+        new PageState("50%", "0"),
+        new PageState("50%", "-50%")
+    };
+
+    IEnumerable<PageState> Page2 = new[]
+    {
+        new PageState("50%", "50%"),
+        new PageState("50%", "0")
+    };
+
+    IEnumerable<PageState> Page3 = new[]
+    {
+        new PageState("50%", "100%"),
+        new PageState("50%", "50%")
+    };
+
+}

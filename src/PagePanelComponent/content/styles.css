@@ -1,1 +1,3 @@
 ﻿
+.uic-pagepanel { position: relative; height:100%; overflow:hidden; }
+.uic-pagepanel__page { position: absolute; transition: all linear 200ms; overflow: hidden; height:100%; }

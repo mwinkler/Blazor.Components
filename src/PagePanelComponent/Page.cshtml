@@ -1,0 +1,27 @@
+﻿
+<div class="uic-pagepanel__page" style=@BuildCurrentPageStyle()>
+
+    @ChildContent
+
+</div>
+
+@functions {
+
+    [Parameter] IEnumerable<PageState> States { get; set; } = Enumerable.Empty<PageState>();
+    
+    //[Parameter] IEnumerable<int> Widths { get; set; } = Enumerable.Empty<int>();
+
+    [Parameter] int CurrentPageIndex { get; set; }
+
+    [Parameter] RenderFragment ChildContent { get; set; }
+
+    string BuildCurrentPageStyle()
+    {
+        var stateList = States.ToList();
+
+        var state = stateList[CurrentPageIndex];
+
+        return $"width:{state.Width};left:{state.Left}";
+    }
+
+}

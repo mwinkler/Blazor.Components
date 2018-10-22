@@ -1,11 +1,12 @@
 ﻿
-@foreach (var pageItem in Page)
-{
-    @pageItem
-}
+<div class="uic-pagepanel">
+
+    @ChildContent
+
+</div>
 
 @functions {
 
-    [Parameter] IEnumerable<RenderFragment> Page { get; set; } = Enumerable.Empty<RenderFragment>();
+    [Parameter] RenderFragment ChildContent { get; set; }
 
 }
