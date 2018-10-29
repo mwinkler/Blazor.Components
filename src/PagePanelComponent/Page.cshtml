@@ -9,19 +9,21 @@
 
     [Parameter] IEnumerable<PageState> States { get; set; } = Enumerable.Empty<PageState>();
     
+    [Parameter] string Widths { get; set; }
+
     //[Parameter] IEnumerable<int> Widths { get; set; } = Enumerable.Empty<int>();
 
-    [Parameter] int CurrentPageIndex { get; set; }
+    [Parameter] int PageIndex { get; set; }
 
     [Parameter] RenderFragment ChildContent { get; set; }
 
     string BuildCurrentPageStyle()
     {
-        var stateList = States.ToList();
+        var widthList = (Widths ?? "").Split(';').ToList();
 
-        var state = stateList[CurrentPageIndex];
+        var width = widthList[Math.Max(Math.Min(PageIndex, widthList.Count - 1), 0)];
 
-        return $"width:{state.Width};left:{state.Left}";
+        return $"width:{width};";
     }
 
 }
