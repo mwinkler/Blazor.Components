@@ -19,11 +19,13 @@
 
     string BuildCurrentPageStyle()
     {
-        var widthList = (Widths ?? "").Split(';').ToList();
+        var widthList = (Widths ?? "").Split(new[] { ';' }, StringSplitOptions.RemoveEmptyEntries).ToList();
 
-        var width = widthList[Math.Max(Math.Min(PageIndex, widthList.Count - 1), 0)];
+        var width = widthList.Any() 
+            ? widthList[Math.Max(Math.Min(PageIndex, widthList.Count - 1), 0)]
+            : "0";
 
-        return $"width:{width};";
+        return $"flex-basis:{width};";
     }
 
 }

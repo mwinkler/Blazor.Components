@@ -1,3 +1,4 @@
 ﻿
-.uic-pagepanel { position: relative; height:100%; overflow:hidden; white-space: nowrap; }
-.uic-pagepanel__page { float:left; transition: all ease-in-out 200ms; overflow: hidden; height: 100%; }
+.uic-pagepanel { overflow:hidden; }
+.uic-pagepanel__container { position: relative; display: flex; flex-wrap: nowrap; align-items: stretch; height: 100%; transition: all ease-in-out 200ms; }
+.uic-pagepanel__page { transition: all ease-in-out 200ms; overflow: hidden; flex-grow:0; flex-shrink:0; }

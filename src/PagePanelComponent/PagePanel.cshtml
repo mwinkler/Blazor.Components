@@ -1,7 +1,11 @@
 ﻿
-<div class="uic-pagepanel">
+<div class="uic-pagepanel @Class" style=@Style>
+    
+    <div class="uic-pagepanel__container" style="left:@LeftPosition()">
 
-    @ChildContent
+        @ChildContent
+    
+    </div>
 
 </div>
 
@@ -10,5 +14,11 @@
     [Parameter] RenderFragment ChildContent { get; set; }
 
     [Parameter] int PageIndex { get; set; }
+
+    [Parameter] string Style { get; set; }
+
+    [Parameter] string Class { get; set; }
+
+    private string LeftPosition() => $"-{PageIndex * 100}%";
 
 }
