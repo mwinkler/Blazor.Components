@@ -6,6 +6,12 @@
     <IsPackable>true</IsPackable>
     <BlazorLinkOnBuild>false</BlazorLinkOnBuild>
     <LangVersion>7.3</LangVersion>
+    <PackageId>MW.Blazor.PagePanel</PackageId>
+    <Authors>Matthias Winkler</Authors>
+    <Description>Blazor component</Description>
+    <Copyright>by M. Winkler</Copyright>
+    <PackageProjectUrl>https://github.com/mwinkler/Blazor.Components</PackageProjectUrl>
+    <PackageTags>blazor page</PackageTags>
   </PropertyGroup>
 
   <ItemGroup>
