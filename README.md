@@ -87,4 +87,11 @@ Work in progress!
 @functions { int CurrentPage { get; set; } }
 ```
 
-[Example](https://github.com/mwinkler/Blazor.Components/blob/master/src/Components.Sample.App/Pages/PagePanelSample.cshtml) 
+**Features / Tasks**
+- [x] Multiple pages on same page
+- [ ] Defaults for 'Widths' property
+- [ ] Property for transition time
+
+
+[Example](https://github.com/mwinkler/Blazor.Components/blob/master/src/Components.Sample.App/Pages/PagePanelSample.cshtml)  
+[Nuget: MW.Blazor.PagePanel](https://www.nuget.org/packages/MW.Blazor.PagePanel/)
