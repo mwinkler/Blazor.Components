@@ -11,7 +11,9 @@
     <Description>Blazor component</Description>
     <Copyright>by M. Winkler</Copyright>
     <PackageProjectUrl>https://github.com/mwinkler/Blazor.Components</PackageProjectUrl>
-    <PackageTags>blazor page</PackageTags>
+    <PackageTags>blazor page swipe</PackageTags>
+    <Version>1.0.1</Version>
+    <PackageReleaseNotes>1.0.1: Add "Style" and "Class" property</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
