@@ -1,6 +1,8 @@
 # Blazor Components
 
-Work in progress!
+Some Blazor components I'm working on.
+
+![Build status](https://hdsonix.visualstudio.com/Blazor%20Components/_apis/build/status/Blazor%20Components-ASP.NET%20Core-CI)
 
 ## Tree
 
