@@ -2,7 +2,6 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <OutputType>Library</OutputType>
     <IsPackable>true</IsPackable>
     <BlazorLinkOnBuild>false</BlazorLinkOnBuild>
     <LangVersion>7.3</LangVersion>
@@ -17,6 +16,10 @@
     <PackageId>MW.Blazor.TagSelector</PackageId>
     <Copyright>by M. Winkler</Copyright>
     <PackageReleaseNotes>1.0.1: Update to Blazor 0.7.0</PackageReleaseNotes>
+    <RestoreAdditionalProjectSources>
+      https://dotnet.myget.org/F/aspnetcore-dev/api/v3/index.json;
+      https://dotnet.myget.org/F/blazor-dev/api/v3/index.json;
+    </RestoreAdditionalProjectSources>
   </PropertyGroup>
 
   <ItemGroup>
