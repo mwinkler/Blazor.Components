@@ -11,13 +11,13 @@
     <Copyright>by M. Winkler</Copyright>
     <PackageProjectUrl>https://github.com/mwinkler/Blazor.Components</PackageProjectUrl>
     <PackageTags>blazor page swipe</PackageTags>
-    <Version>1.0.2</Version>
-    <PackageReleaseNotes>1.0.2: Update to Blazor 0.7.0
-1.0.1: Add "Style" and "Class" property</PackageReleaseNotes>
+    <Version>1.1.0-core3</Version>
+    <PackageReleaseNotes>Update to Core 3.0</PackageReleaseNotes>
     <RestoreAdditionalProjectSources>
       https://dotnet.myget.org/F/aspnetcore-dev/api/v3/index.json;
       https://dotnet.myget.org/F/blazor-dev/api/v3/index.json;
     </RestoreAdditionalProjectSources>
+    <RepositoryUrl>https://github.com/mwinkler/Blazor.Components</RepositoryUrl>
   </PropertyGroup>
 
   <ItemGroup>

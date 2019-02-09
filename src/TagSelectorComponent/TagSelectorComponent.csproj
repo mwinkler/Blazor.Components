@@ -6,7 +6,7 @@
     <BlazorLinkOnBuild>false</BlazorLinkOnBuild>
     <LangVersion>7.3</LangVersion>
     <Authors>Matthias Winkler</Authors>
-    <Version>1.0.1</Version>
+    <Version>1.1.0-core3</Version>
     <Company />
     <PackageProjectUrl>https://github.com/mwinkler/Blazor.Components</PackageProjectUrl>
     <RepositoryUrl>https://github.com/mwinkler/Blazor.Components</RepositoryUrl>
@@ -15,7 +15,7 @@
     <Description>Blazor component for tag selection</Description>
     <PackageId>MW.Blazor.TagSelector</PackageId>
     <Copyright>by M. Winkler</Copyright>
-    <PackageReleaseNotes>1.0.1: Update to Blazor 0.7.0</PackageReleaseNotes>
+    <PackageReleaseNotes>Update to Core 3.0</PackageReleaseNotes>
     <RestoreAdditionalProjectSources>
       https://dotnet.myget.org/F/aspnetcore-dev/api/v3/index.json;
       https://dotnet.myget.org/F/blazor-dev/api/v3/index.json;
