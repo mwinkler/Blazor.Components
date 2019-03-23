@@ -1,13 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28010.2046
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28714.193
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TagSelectorComponent", "src\TagSelectorComponent\TagSelectorComponent.csproj", "{D676569B-0DFA-4AFF-9168-4AF86BBF9F06}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Components.Sample.App", "src\Components.Sample.App\Components.Sample.App.csproj", "{FC041EDF-CBE3-46E4-8E81-0AAB15C8A161}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Components.Sample.Server", "src\Components.Sample.Server\Components.Sample.Server.csproj", "{3AE7918A-81C9-4802-B08D-5D745CB472C6}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TreeComponent", "src\TreeComponent\TreeComponent.csproj", "{BB65AC9A-7B18-4941-A635-EA95D77779D2}"
 EndProject
@@ -17,6 +15,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PagePanelComponent", "src\PagePanelComponent\PagePanelComponent.csproj", "{5E1650FF-8714-47FF-86D7-9147320DAF20}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ComponentsDemo", "example\ComponentsDemo\ComponentsDemo.csproj", "{6AF73343-8342-49D7-9E7A-E5615CD5CA6D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -32,10 +32,6 @@ Global
 		{FC041EDF-CBE3-46E4-8E81-0AAB15C8A161}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FC041EDF-CBE3-46E4-8E81-0AAB15C8A161}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FC041EDF-CBE3-46E4-8E81-0AAB15C8A161}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3AE7918A-81C9-4802-B08D-5D745CB472C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3AE7918A-81C9-4802-B08D-5D745CB472C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3AE7918A-81C9-4802-B08D-5D745CB472C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3AE7918A-81C9-4802-B08D-5D745CB472C6}.Release|Any CPU.Build.0 = Release|Any CPU
 		{BB65AC9A-7B18-4941-A635-EA95D77779D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{BB65AC9A-7B18-4941-A635-EA95D77779D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BB65AC9A-7B18-4941-A635-EA95D77779D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -44,6 +40,10 @@ Global
 		{5E1650FF-8714-47FF-86D7-9147320DAF20}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5E1650FF-8714-47FF-86D7-9147320DAF20}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5E1650FF-8714-47FF-86D7-9147320DAF20}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6AF73343-8342-49D7-9E7A-E5615CD5CA6D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6AF73343-8342-49D7-9E7A-E5615CD5CA6D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6AF73343-8342-49D7-9E7A-E5615CD5CA6D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6AF73343-8342-49D7-9E7A-E5615CD5CA6D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

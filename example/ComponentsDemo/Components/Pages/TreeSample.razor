@@ -1,0 +1,77 @@
+﻿@page "/Tree"
+
+<Tree Nodes=@Items ChildSelector=@(item => item.Childs) OnNodeSelected=@OnSelect SelectedNodes=@SelectedItem ExpandedNodes=@ExpandedNodes HasChildNodes=@(item => item.Childs?.Any() == true)>
+    <TitleTemplate>@context.Text</TitleTemplate>
+</Tree>
+
+<p style="margin-top: 2rem">
+    Selected: @string.Join(", ", SelectedItem.Select(i => i.Text))<br />
+    Expanded: @string.Join(", ", ExpandedNodes.Select(i => i.Text))<br />
+
+    <button onclick=@StateHasChanged>Update</button>
+</p>
+
+@functions {
+
+    public class Item
+    {
+        public string Text { get; set; }
+        public IEnumerable<Item> Childs { get; set; }
+    }
+
+    IEnumerable<Item> Items = new[]
+    {
+        new Item { Text = "Item 1" },
+        new Item {
+            Text = "Item 2",
+            Childs = new []
+            {
+                new Item { Text = "Item 2.1" },
+                new Item { Text = "Item 2.2", Childs = new []
+                    {
+                        new Item { Text = "Item 2.2.1" },
+                        new Item { Text = "Item 2.2.2" },
+                        new Item { Text = "Item 2.2.3" },
+                        new Item { Text = "Item 2.2.4" }
+
+                    } },
+                new Item { Text = "Item 2.3" },
+                new Item { Text = "Item 2.4" }
+
+            }},
+        new Item { Text = "Item 3" },
+        new Item { 
+            Text = "Item 4",
+            Childs = new []
+            {
+                new Item { Text = "Item 4.1" },
+                new Item { Text = "Item 4.2", Childs = new []
+                {
+                    new Item { Text = "Item 4.2.1" },
+                    new Item { Text = "Item 4.2.2" },
+                    new Item { Text = "Item 4.2.3" },
+                    new Item { Text = "Item 4.2.4" }
+                } },
+            new Item { Text = "Item 4.3" },
+            new Item { Text = "Item 4.4" }
+
+            } },
+        new Item { Text = "Item 5" },
+        new Item { Text = "Item 6" },
+    };
+
+    List<Item> ExpandedNodes = new List<Item>();
+    List<Item> SelectedItem = new List<Item>();
+
+    protected override void OnInit()
+    {
+        ExpandedNodes.AddRange(Items.Skip(1).Take(1));
+        ExpandedNodes.AddRange(Items.Skip(1).Take(1).First().Childs.Skip(1).Take(1));
+    }
+
+    async Task OnSelect(Item item)
+    {
+        StateHasChanged();
+    }
+
+}
