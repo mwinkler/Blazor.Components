@@ -1,10 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
-    <IsPackable>true</IsPackable>
-    <BlazorLinkOnBuild>false</BlazorLinkOnBuild>
-    <LangVersion>7.3</LangVersion>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
     <PackageId>MW.Blazor.Tree</PackageId>
     <Authors>Matthias Winkler</Authors>
     <Description>Blazor tree component</Description>
@@ -12,12 +9,8 @@
     <PackageProjectUrl>https://github.com/mwinkler/Blazor.Components</PackageProjectUrl>
     <RepositoryUrl>https://github.com/mwinkler/Blazor.Components</RepositoryUrl>
     <PackageTags>blazor tree component</PackageTags>
-    <Version>1.1.0-core3</Version>
-    <PackageReleaseNotes>Update to Core 3.0</PackageReleaseNotes>
-    <RestoreAdditionalProjectSources>
-      https://dotnet.myget.org/F/aspnetcore-dev/api/v3/index.json;
-      https://dotnet.myget.org/F/blazor-dev/api/v3/index.json;
-    </RestoreAdditionalProjectSources>
+    <Version>1.1.1-core3</Version>
+    <PackageReleaseNotes>Update to ASP.NET Core 3 preview-3</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
@@ -28,8 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Components.Browser" Version="3.0.0-preview-19075-0444" />
-    <PackageReference Include="Microsoft.AspNetCore.Components.Build" Version="3.0.0-preview-19075-0444" PrivateAssets="all" />
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
   </ItemGroup>
 
 </Project>

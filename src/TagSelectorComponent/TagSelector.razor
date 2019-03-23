@@ -1,6 +1,7 @@
 ﻿@using Microsoft.JSInterop
 
 @typeparam TItem
+@inject IJSRuntime JsRuntime
 
 <div class="uic-tag-selector @Style.SelectorClass @(_selectionOpen ? "uic-tag-selector--open" : "")">
     <div class="uic-tag-selector__box">
@@ -20,14 +21,14 @@
     @if (_selectableItems.Any())
     {
         <div class="uic-tag-selector__dropdown @Style.DropdownClass">
-        
+
             @foreach (var item in _selectableItems)
             {
                 <div class="@Style.DropdownItemClass @(_selectableItems.IndexOf(item) == _selectableIndex ? "uic-tag-selector__item--selected " + Style.DropdownItemHoverClass : "")" onmousedown=@(() => AddSelectedTag(item, true))>
                     @TagTemplate(item)
                 </div>
             }
-        
+
         </div>
     }
 </div>
@@ -60,7 +61,7 @@
         _filterText = "";
         UpdateSelectableItems();
         _selectionOpen = !closeSelection;
-        JSRuntime.Current.InvokeAsync<object>("tagSelectorComponent.setValue", TextBox, "");
+        JsRuntime.InvokeAsync<object>("tagSelectorComponent.setValue", TextBox, "");
         OnTagSelected?.Invoke(item);
     }
 
@@ -102,11 +103,11 @@
                 break;
 
             case "Escape":
-                await JSRuntime.Current.InvokeAsync<object>("tagSelectorComponent.blur", TextBox);
+                await JsRuntime.InvokeAsync<object>("tagSelectorComponent.blur", TextBox);
                 break;
 
             default:
-                _filterText = await JSRuntime.Current.InvokeAsync<string>("tagSelectorComponent.getValue", TextBox);
+                _filterText = await JsRuntime.InvokeAsync<string>("tagSelectorComponent.getValue", TextBox);
                 UpdateSelectableItems();
                 break;
         }
