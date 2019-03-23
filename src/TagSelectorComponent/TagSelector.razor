@@ -11,11 +11,11 @@
             {
                 <span class="@Style.SelectedTagClass">
                     @TagTemplate(item)
-                    <span class="@Style.RemoveTagClass" onclick=@(() => RemoveSelectedTag(item))></span>
+                    <span class="@Style.RemoveTagClass" onclick="@(() => RemoveSelectedTag(item))"></span>
                 </span>
             }
         }
-        <input type="text" onfocus=@OpenSelection onblur=@CloseSelection onkeyup=@OnTextKeypress ref="TextBox" />
+        <input type="text" onfocus="@OpenSelection" onblur="@CloseSelection" onkeyup="@OnTextKeypress" ref="TextBox" />
     </div>
 
     @if (_selectableItems.Any())
@@ -24,7 +24,7 @@
 
             @foreach (var item in _selectableItems)
             {
-                <div class="@Style.DropdownItemClass @(_selectableItems.IndexOf(item) == _selectableIndex ? "uic-tag-selector__item--selected " + Style.DropdownItemHoverClass : "")" onmousedown=@(() => AddSelectedTag(item, true))>
+                <div class="@Style.DropdownItemClass @(_selectableItems.IndexOf(item) == _selectableIndex ? "uic-tag-selector__item--selected " + Style.DropdownItemHoverClass : "")" onmousedown="@(() => AddSelectedTag(item, true))">
                     @TagTemplate(item)
                 </div>
             }

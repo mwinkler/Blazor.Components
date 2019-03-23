@@ -1,6 +1,6 @@
 ﻿@page "/Tree"
 
-<Tree Nodes=@Items ChildSelector=@(item => item.Childs) OnNodeSelected=@OnSelect SelectedNodes=@SelectedItem ExpandedNodes=@ExpandedNodes HasChildNodes=@(item => item.Childs?.Any() == true)>
+<Tree Nodes="@Items" ChildSelector="@(item => item.Childs)" OnNodeSelected="@OnSelect" SelectedNodes="@SelectedItem" ExpandedNodes="@ExpandedNodes" HasChildNodes="@(item => item.Childs?.Any() == true)">
     <TitleTemplate>@context.Text</TitleTemplate>
 </Tree>
 
@@ -8,7 +8,7 @@
     Selected: @string.Join(", ", SelectedItem.Select(i => i.Text))<br />
     Expanded: @string.Join(", ", ExpandedNodes.Select(i => i.Text))<br />
 
-    <button onclick=@StateHasChanged>Update</button>
+    <button onclick="@StateHasChanged">Update</button>
 </p>
 
 @functions {

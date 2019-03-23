@@ -13,13 +13,13 @@
             
             @if (hasChilds)
             {
-                <span class="uic-tree__icon" onclick=@(async () => await OnToggleNode(node, !nodeExpanded))>
+                <span class="uic-tree__icon" onclick="@(() => OnToggleNode(node, !nodeExpanded))">
                     <i class="@(nodeExpanded ? Style.CollapseNodeIconClass : Style.ExpandNodeIconClass)"></i>
                 </span>
             }
 
             <div class="uic-tree__title">
-                <span class="@Style.NodeTitleClass @(nodeSelected ? Style.NodeTitleSelectedClass : "")" onclick=@(async () => await OnSelectNode(node))>
+                <span class="@Style.NodeTitleClass @(nodeSelected ? Style.NodeTitleSelectedClass : "")" onclick="@(() => OnSelectNode(node))">
                     @TitleTemplate(node)
                 </span>
             </div>
@@ -27,15 +27,14 @@
             @if (hasChilds)
             {
                 <Tree 
-                    Nodes=@ChildSelector(node) 
-                    TitleTemplate=@TitleTemplate 
-                    ChildSelector=@ChildSelector
-                    ExpandedNodes=@ExpandedNodes
-                    OnNodeSelected=@OnChildNodeSelected
-                    SelectedNodes=@SelectedNodes
-                    Visible=@nodeExpanded
-                    HasChildNodes=@HasChildNodes>
-                </Tree>
+                    Nodes="@ChildSelector(node)"
+                    TitleTemplate="@TitleTemplate" 
+                    ChildSelector="@ChildSelector"
+                    ExpandedNodes="@ExpandedNodes"
+                    OnNodeSelected="@OnChildNodeSelected"
+                    SelectedNodes="@SelectedNodes"
+                    Visible="@nodeExpanded"
+                    HasChildNodes="@HasChildNodes" />
             }
             
         </div>
@@ -63,7 +62,7 @@
 
     [Parameter] Func<TNode, bool> HasChildNodes { get; set; } = node => true;
 
-    private async Task OnToggleNode(TNode node, bool expand)
+    private void OnToggleNode(TNode node, bool expand)
     {
         var expanded = ExpandedNodes.Contains(node);
 
@@ -81,7 +80,6 @@
     {
         SelectedNodes.Clear();
         SelectedNodes.Add(node);
-
 
         await OnNodeSelected?.Invoke(node);
     }

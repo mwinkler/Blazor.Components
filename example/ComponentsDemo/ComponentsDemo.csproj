@@ -8,10 +8,12 @@
 
   <ItemGroup>
     <Content Remove="wwwroot\css\components.css" />
+    <Content Remove="wwwroot\interop.js" />
   </ItemGroup>
 
   <ItemGroup>
     <None Include="wwwroot\css\components.css" />
+    <None Include="wwwroot\interop.js" />
   </ItemGroup>
 
   <ItemGroup>
