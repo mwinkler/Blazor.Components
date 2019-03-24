@@ -1,11 +1,11 @@
 ﻿@page "/Tree"
 
-<Tree Nodes="@Items" ChildSelector="@(item => item.Childs)" OnNodeSelected="@OnSelect" SelectedNodes="@SelectedItem" ExpandedNodes="@ExpandedNodes" HasChildNodes="@(item => item.Childs?.Any() == true)">
+<Tree Nodes="@Items" ChildSelector="@(item => item.Childs)" bind-SelectedNode="@selectedNode" ExpandedNodes="@ExpandedNodes" HasChildNodes="@(item => item.Childs?.Any() == true)">
     <TitleTemplate>@context.Text</TitleTemplate>
 </Tree>
 
 <p style="margin-top: 2rem">
-    Selected: @string.Join(", ", SelectedItem.Select(i => i.Text))<br />
+    Selected: @selectedNode?.Text<br />
     Expanded: @string.Join(", ", ExpandedNodes.Select(i => i.Text))<br />
 
     <button onclick="@StateHasChanged">Update</button>
@@ -61,17 +61,12 @@
     };
 
     List<Item> ExpandedNodes = new List<Item>();
-    List<Item> SelectedItem = new List<Item>();
+    Item selectedNode;
 
     protected override void OnInit()
     {
         ExpandedNodes.AddRange(Items.Skip(1).Take(1));
         ExpandedNodes.AddRange(Items.Skip(1).Take(1).First().Childs.Skip(1).Take(1));
-    }
-
-    async Task OnSelect(Item item)
-    {
-        StateHasChanged();
     }
 
 }

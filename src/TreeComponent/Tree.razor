@@ -6,7 +6,7 @@
     @foreach (var node in Nodes ?? Enumerable.Empty<TNode>())
     {
         var nodeExpanded = ExpandedNodes.Contains(node);
-        var nodeSelected = SelectedNodes.Contains(node);
+        var nodeSelected = node.Equals(SelectedNode);
         var hasChilds = HasChildNodes(node);
 
         <div>
@@ -31,8 +31,8 @@
                     TitleTemplate="@TitleTemplate" 
                     ChildSelector="@ChildSelector"
                     ExpandedNodes="@ExpandedNodes"
-                    OnNodeSelected="@OnChildNodeSelected"
-                    SelectedNodes="@SelectedNodes"
+                    SelectedNode="@SelectedNode"
+                    SelectedNodeChanged="@OnChildNodeSelected"
                     Visible="@nodeExpanded"
                     HasChildNodes="@HasChildNodes" />
             }
@@ -48,13 +48,12 @@
 
     [Parameter] RenderFragment<TNode> TitleTemplate { get; set; }
 
-    [Parameter] IList<TNode> SelectedNodes { get; set; } = new List<TNode>();
+    [Parameter] TNode SelectedNode { get; set; }
+    [Parameter] Action<TNode> SelectedNodeChanged { get; set; }
 
     [Parameter] Func<TNode, IEnumerable<TNode>> ChildSelector { get; set; }
 
     [Parameter] IList<TNode> ExpandedNodes { get; set; } = new List<TNode>();
-
-    [Parameter] Func<TNode, Task> OnNodeSelected { get; set; }
 
     [Parameter] TreeStyle Style { get; set; } = TreeStyle.Bootstrap;
 
@@ -76,19 +75,18 @@
         }
     }
 
-    private async Task OnSelectNode(TNode node)
+    private void OnSelectNode(TNode node)
     {
-        SelectedNodes.Clear();
-        SelectedNodes.Add(node);
-
-        await OnNodeSelected?.Invoke(node);
+        SelectedNode = node;
+        SelectedNodeChanged?.Invoke(node);
     }
 
-    private async Task OnChildNodeSelected(TNode item)
+    private void OnChildNodeSelected(TNode item)
     {
         StateHasChanged();
 
-        await OnNodeSelected?.Invoke(item);
+        SelectedNode = item;
+        SelectedNodeChanged?.Invoke(item);
     }
 
 }

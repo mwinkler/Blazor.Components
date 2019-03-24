@@ -45,9 +45,9 @@
 
     [Parameter] Func<TItem, string, bool> Filter { get; set; }
 
-    [Parameter] Action<TItem> OnTagSelected { get; set; }
+    [Parameter] EventCallback<TItem> OnTagSelected { get; set; }
 
-    [Parameter] Action<TItem> OnTagRemoved { get; set; }
+    [Parameter] EventCallback<TItem> OnTagRemoved { get; set; }
 
     private bool _selectionOpen;
     private string _filterText;
@@ -62,13 +62,13 @@
         UpdateSelectableItems();
         _selectionOpen = !closeSelection;
         JsRuntime.InvokeAsync<object>("tagSelectorComponent.setValue", TextBox, "");
-        OnTagSelected?.Invoke(item);
+        OnTagSelected.InvokeAsync(item);
     }
 
     private void RemoveSelectedTag(TItem item)
     {
         SelectedTags.Remove(item);
-        OnTagRemoved?.Invoke(item);
+        OnTagRemoved.InvokeAsync(item);
     }
 
     private void OpenSelection()
