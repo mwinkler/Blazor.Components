@@ -11,6 +11,7 @@
     <Version>1.1.1-core3</Version>
     <PackageReleaseNotes>Update to ASP.NET Core 3 preview-3</PackageReleaseNotes>
     <RepositoryUrl>https://github.com/mwinkler/Blazor.Components</RepositoryUrl>
+    <PackageLicenseUrl>https://github.com/mwinkler/Blazor.Components/blob/master/LICENSE</PackageLicenseUrl>
   </PropertyGroup>
 
   <ItemGroup>
