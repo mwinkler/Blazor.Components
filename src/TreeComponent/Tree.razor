@@ -32,6 +32,7 @@
                     TitleTemplate="@TitleTemplate" 
                     ChildSelector="@ChildSelector"
                     ExpandedNodes="@ExpandedNodes"
+                    ExpandedNodesChanged="@ExpandedNodesChanged"
                     SelectedNode="@SelectedNode"
                     SelectedNodeChanged="@SelectedNodeChanged"
                     Visible="@nodeExpanded"
@@ -55,6 +56,7 @@
     [Parameter] Func<TNode, IEnumerable<TNode>> ChildSelector { get; set; }
 
     [Parameter] IList<TNode> ExpandedNodes { get; set; } = new List<TNode>();
+    [Parameter] EventCallback<IList<TNode>> ExpandedNodesChanged { get; set; }
 
     [Parameter] TreeStyle Style { get; set; } = TreeStyle.Bootstrap;
 
@@ -69,10 +71,12 @@
         if (expanded && !expand)
         {
             ExpandedNodes.Remove(node);
+            ExpandedNodesChanged.InvokeAsync(ExpandedNodes);
         }
         else if (!expanded && expand)
         {
             ExpandedNodes.Add(node);
+            ExpandedNodesChanged.InvokeAsync(ExpandedNodes);
         }
     }
 
@@ -81,13 +85,5 @@
         SelectedNode = node;
         SelectedNodeChanged.InvokeAsync(node);
     }
-
-    //private void OnChildNodeSelected(TNode item)
-    //{
-    //    StateHasChanged();
-
-    //    SelectedNode = item;
-    //    SelectedNodeChanged.InvokeAsync(item);
-    //}
 
 }

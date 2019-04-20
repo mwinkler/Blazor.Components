@@ -1,6 +1,6 @@
 ﻿@page "/Tree"
 
-<Tree Nodes="@Items" ChildSelector="@(item => item.Childs)" bind-SelectedNode="@selectedNode" ExpandedNodes="@ExpandedNodes" HasChildNodes="@(item => item.Childs?.Any() == true)">
+<Tree Nodes="@Items" ChildSelector="@(item => item.Childs)" bind-SelectedNode="@selectedNode" bind-ExpandedNodes="@ExpandedNodes" HasChildNodes="@(item => item.Childs?.Any() == true)">
     <TitleTemplate>@context.Text</TitleTemplate>
 </Tree>
 
@@ -60,13 +60,13 @@
         new Item { Text = "Item 6" },
     };
 
-    List<Item> ExpandedNodes = new List<Item>();
+    IList<Item> ExpandedNodes = new List<Item>();
     Item selectedNode;
 
     protected override void OnInit()
     {
-        ExpandedNodes.AddRange(Items.Skip(1).Take(1));
-        ExpandedNodes.AddRange(Items.Skip(1).Take(1).First().Childs.Skip(1).Take(1));
+        ExpandedNodes.Add(Items.Skip(1).First());
+        ExpandedNodes.Add(Items.Skip(1).Take(1).First().Childs.Skip(1).First());
     }
 
 }
