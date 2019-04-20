@@ -61,23 +61,23 @@ Build for ASP.NET Core 3.0.0-preview4
 ![](https://raw.githubusercontent.com/mwinkler/Blazor.Components/master/doc/page-panel.gif)
 
 ```html
-<PagePanel PageIndex=@CurrentPage Class="mb-2" Style="height:250px">
-    <Page PageIndex=@CurrentPage Widths="50%;100%;200%">
+<PagePanel PageIndex=@CurrentPage Style="height:250px">
+    <Page Widths="50%;100%;200%">
         <div class="d-flex justify-content-center align-items-center h-100 text-white h4" style="background:#00ff90">
             Page 1
         </div>
     </Page>
-    <Page PageIndex=@CurrentPage Widths="50%;30%;20%;50%">
+    <Page Widths="50%;30%;20%;50%">
         <div class="d-flex justify-content-center align-items-center h-100 text-white h4" style="background:#1596c7">
             Page 2
         </div>
     </Page>
-    <Page PageIndex=@CurrentPage Widths="70%;70%;20%;50%">
+    <Page Widths="70%;70%;20%;50%">
         <div class="d-flex justify-content-center align-items-center h-100 text-white h4" style="background:#b823be">
             Page 3
         </div>
     </Page>
-    <Page PageIndex=@CurrentPage Widths="60%;60%;60%;100%">
+    <Page Widths="60%;60%;60%;100%">
         <div class="d-flex justify-content-center align-items-center h-100 text-white h4" style="background:#ff6a00">
             Page 4
         </div>
@@ -96,6 +96,7 @@ Build for ASP.NET Core 3.0.0-preview4
 - [x] Multiple pages on same page
 - [ ] Defaults for 'Widths' property
 - [ ] Property for transition time
+- [ ] Simplify 'Widths' property
 
 
 [Example](https://github.com/mwinkler/Blazor.Components/blob/master/example/ComponentsDemo/Pages/PagePanelSample.razor)  
