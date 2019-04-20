@@ -5,16 +5,16 @@
     <PackageId>MW.Blazor.PagePanel</PackageId>
     <Authors>Matthias Winkler</Authors>
     <Description>Blazor component</Description>
-    <Copyright>M. Winkler</Copyright>
     <PackageProjectUrl>https://github.com/mwinkler/Blazor.Components</PackageProjectUrl>
     <PackageTags>blazor component page swipe</PackageTags>
-    <Version>1.1.1-core3</Version>
-    <PackageReleaseNotes>Update to ASP.NET Core 3 preview-4</PackageReleaseNotes>
+    <Version>1.1.0</Version>
+    <PackageReleaseNotes>Update to ASP.NET Core 3.0.0-preview4</PackageReleaseNotes>
     <RepositoryUrl>https://github.com/mwinkler/Blazor.Components</RepositoryUrl>
     <PackageLicenseUrl>https://github.com/mwinkler/Blazor.Components/blob/master/LICENSE</PackageLicenseUrl>
     <AddRazorSupportForMvc>true</AddRazorSupportForMvc>
     <AssemblyName>MW.Blazor.PagePanelComponent</AssemblyName>
     <RootNamespace>MW.Blazor</RootNamespace>
+    <AssemblyVersion>1.1.0.0</AssemblyVersion>
   </PropertyGroup>
 
   <ItemGroup>
