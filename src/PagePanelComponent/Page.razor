@@ -1,9 +1,7 @@
 ﻿@using MW.Blazor
 
 <div class="uic-pagepanel__page @Class" style="@BuildCurrentPageStyle() @Style">
-
     @ChildContent
-
 </div>
 
 @functions {
@@ -14,7 +12,7 @@
 
     //[Parameter] IEnumerable<int> Widths { get; set; } = Enumerable.Empty<int>();
 
-    [Parameter] int PageIndex { get; set; }
+    [CascadingParameter] int PageIndex { get; set; }
 
     [Parameter] RenderFragment ChildContent { get; set; }
 

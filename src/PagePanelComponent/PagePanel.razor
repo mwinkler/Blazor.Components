@@ -1,12 +1,10 @@
 ﻿
 <div class="uic-pagepanel @Class" style="@Style">
-    
     <div class="uic-pagepanel__container" style="left:@LeftPosition()">
-
-        @ChildContent
-    
+        <CascadingValue Value="@PageIndex">
+            @ChildContent
+        </CascadingValue>
     </div>
-
 </div>
 
 @functions {

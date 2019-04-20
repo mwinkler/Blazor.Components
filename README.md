@@ -30,7 +30,7 @@ Build for ASP.NET Core 3.0.0-preview4
 - [x] Single selection
 - [ ] Multi selection (Checkboxes)
 - [ ] Event population (OnSelect, OnExpand, ...)
-- [x] Use EventCallback
+- [x] Support EventCallback<>
 
 
 ## Tag Selector
@@ -54,7 +54,7 @@ Build for ASP.NET Core 3.0.0-preview4
 - [x] Styling (Bootstrap)
 - [ ] Disabling selection of items
 - [x] Event population (OnSelect, OnRemove)
-- [x] Use EventCallback
+- [x] Support EventCallback<>
 
 ## Page Panel
 
