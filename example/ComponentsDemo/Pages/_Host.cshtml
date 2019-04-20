@@ -1,10 +1,13 @@
-﻿@page "{*clientPath}"
+﻿@page "/"
+@namespace CompoentsDemo.Pages
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ComponentsDemo</title>
+    <title>core3-preview4-blazor-server</title>
     <base href="~/" />
     <environment include="Development">
         <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css" />
@@ -14,16 +17,13 @@
               asp-fallback-href="css/bootstrap/bootstrap.min.css"
               asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute"
               crossorigin="anonymous"
-              integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" />
+              integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"/>
     </environment>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <link href="css/site.css" rel="stylesheet" />
-    <link href="~/css/components.css" rel="stylesheet" />
-    <script src="~/interop.js"></script>
 </head>
 <body>
     <app>@(await Html.RenderComponentAsync<App>())</app>
 
-    <script src="_framework/components.server.js"></script>
+    <script src="_framework/blazor.server.js"></script>
 </body>
 </html>

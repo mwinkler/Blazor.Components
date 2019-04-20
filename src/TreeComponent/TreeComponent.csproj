@@ -5,13 +5,16 @@
     <PackageId>MW.Blazor.Tree</PackageId>
     <Authors>Matthias Winkler</Authors>
     <Description>Blazor tree component</Description>
-    <Copyright>by M. Winkler</Copyright>
+    <Copyright>M. Winkler</Copyright>
     <PackageProjectUrl>https://github.com/mwinkler/Blazor.Components</PackageProjectUrl>
     <RepositoryUrl>https://github.com/mwinkler/Blazor.Components</RepositoryUrl>
     <PackageTags>blazor tree component</PackageTags>
     <Version>1.1.1-core3</Version>
-    <PackageReleaseNotes>Update to ASP.NET Core 3 preview-3</PackageReleaseNotes>
-	<PackageLicenseUrl>https://github.com/mwinkler/Blazor.Components/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageReleaseNotes>Update to ASP.NET Core 3 preview-4</PackageReleaseNotes>
+	  <PackageLicenseUrl>https://github.com/mwinkler/Blazor.Components/blob/master/LICENSE</PackageLicenseUrl>
+    <AddRazorSupportForMvc>true</AddRazorSupportForMvc>
+    <AssemblyName>MW.Blazor.TreeComponent</AssemblyName>
+    <RootNamespace>MW.Blazor</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>

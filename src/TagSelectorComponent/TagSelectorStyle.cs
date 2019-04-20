@@ -1,5 +1,5 @@
 ﻿
-namespace TagSelectorComponent
+namespace MW.Blazor
 {
     public class TagSelectorStyle
     {
