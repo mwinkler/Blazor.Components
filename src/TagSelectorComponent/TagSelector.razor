@@ -39,6 +39,7 @@
     [Parameter] IEnumerable<TItem> SelectableTags { get; set; }
 
     [Parameter] IList<TItem> SelectedTags { get; set; } = new List<TItem>();
+    [Parameter] EventCallback<IList<TItem>> SelectedTagsChanged { get; set; }
 
     [Parameter] TagSelectorStyle Style { get; set; } = TagSelectorStyle.Bootstrap;
 
@@ -64,12 +65,14 @@
         _selectionOpen = !closeSelection;
         JsRuntime.InvokeAsync<object>("tagSelectorComponent.setValue", TextBox, "");
         OnTagSelected.InvokeAsync(item);
+        SelectedTagsChanged.InvokeAsync(SelectedTags);
     }
 
     private void RemoveSelectedTag(TItem item)
     {
         SelectedTags.Remove(item);
         OnTagRemoved.InvokeAsync(item);
+        SelectedTagsChanged.InvokeAsync(SelectedTags);
     }
 
     private void OpenSelection()
