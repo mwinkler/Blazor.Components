@@ -33,7 +33,7 @@
                     ChildSelector="@ChildSelector"
                     ExpandedNodes="@ExpandedNodes"
                     SelectedNode="@SelectedNode"
-                    SelectedNodeChanged="@OnChildNodeSelected"
+                    SelectedNodeChanged="@SelectedNodeChanged"
                     Visible="@nodeExpanded"
                     HasChildNodes="@HasChildNodes" />
             }
@@ -50,7 +50,7 @@
     [Parameter] RenderFragment<TNode> TitleTemplate { get; set; }
 
     [Parameter] TNode SelectedNode { get; set; }
-    [Parameter] Action<TNode> SelectedNodeChanged { get; set; }
+    [Parameter] EventCallback<TNode> SelectedNodeChanged { get; set; }
 
     [Parameter] Func<TNode, IEnumerable<TNode>> ChildSelector { get; set; }
 
@@ -79,15 +79,15 @@
     private void OnSelectNode(TNode node)
     {
         SelectedNode = node;
-        SelectedNodeChanged?.Invoke(node);
+        SelectedNodeChanged.InvokeAsync(node);
     }
 
-    private void OnChildNodeSelected(TNode item)
-    {
-        StateHasChanged();
+    //private void OnChildNodeSelected(TNode item)
+    //{
+    //    StateHasChanged();
 
-        SelectedNode = item;
-        SelectedNodeChanged?.Invoke(item);
-    }
+    //    SelectedNode = item;
+    //    SelectedNodeChanged.InvokeAsync(item);
+    //}
 
 }
