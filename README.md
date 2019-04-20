@@ -1,6 +1,7 @@
 # Blazor Components
 
-Some Blazor components I'm working on.
+Some Blazor components I'm working on.  
+Build for ASP.NET Core 3.0.0-preview4
 
 ![Build status](https://hdsonix.visualstudio.com/Blazor%20Components/_apis/build/status/Blazor%20Components-ASP.NET%20Core-CI)
 
@@ -11,13 +12,13 @@ Some Blazor components I'm working on.
 ```html
 <Tree 
     Nodes=@Items 
-    SelectedNodes=@SelectedItem 
+    SelectedNode=@SelectedItem 
     ChildSelector=@(item => item.Childs)>
     <TitleTemplate>@context.Text</TitleTemplate>
 </Tree>
 ```
 
-[Example](https://github.com/mwinkler/Blazor.Components/blob/master/src/Components.Sample.App/Pages/TreeSample.cshtml)  
+[Example](https://github.com/mwinkler/Blazor.Components/blob/master/example/ComponentsDemo/Pages/TreeSample.razor)  
 [Nuget: MW.Blazor.Tree](https://www.nuget.org/packages/MW.Blazor.Tree/)
 
 **Features / Tasks**
@@ -29,6 +30,7 @@ Some Blazor components I'm working on.
 - [x] Single selection
 - [ ] Multi selection (Checkboxes)
 - [ ] Event population (OnSelect, OnExpand, ...)
+- [x] Use EventCallback
 
 
 ## Tag Selector
@@ -41,7 +43,7 @@ Some Blazor components I'm working on.
 </TagSelector>
 ```
 
-[Example](https://github.com/mwinkler/Blazor.Components/blob/master/src/Components.Sample.App/Pages/TagSelectorSample.cshtml)  
+[Example](https://github.com/mwinkler/Blazor.Components/blob/master/example/ComponentsDemo/Pages/TagSelectorSample.razor)  
 [Nuget: MW.Blazor.TagSelector](https://www.nuget.org/packages/MW.Blazor.TagSelector/)
 
 **Features / Tasks**
@@ -52,6 +54,7 @@ Some Blazor components I'm working on.
 - [x] Styling (Bootstrap)
 - [ ] Disabling selection of items
 - [x] Event population (OnSelect, OnRemove)
+- [x] Use EventCallback
 
 ## Page Panel
 
@@ -95,5 +98,5 @@ Some Blazor components I'm working on.
 - [ ] Property for transition time
 
 
-[Example](https://github.com/mwinkler/Blazor.Components/blob/master/src/Components.Sample.App/Pages/PagePanelSample.cshtml)  
+[Example](https://github.com/mwinkler/Blazor.Components/blob/master/example/ComponentsDemo/Pages/PagePanelSample.razor)  
 [Nuget: MW.Blazor.PagePanel](https://www.nuget.org/packages/MW.Blazor.PagePanel/)
