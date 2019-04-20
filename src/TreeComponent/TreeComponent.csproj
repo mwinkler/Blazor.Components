@@ -1,7 +1,12 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <IsPackable>true</IsPackable>
+    <LangVersion>7.3</LangVersion>
+    <RazorLangVersion>3.0</RazorLangVersion>
+    <AddRazorSupportForMvc>true</AddRazorSupportForMvc>
+
     <PackageId>MW.Blazor.Tree</PackageId>
     <Authors>Matthias Winkler</Authors>
     <Description>Blazor tree component</Description>
@@ -12,7 +17,6 @@
     <Version>1.1.0</Version>
     <PackageReleaseNotes>Update to ASP.NET Core 3 preview-4</PackageReleaseNotes>
 	  <PackageLicenseUrl>https://github.com/mwinkler/Blazor.Components/blob/master/LICENSE</PackageLicenseUrl>
-    <AddRazorSupportForMvc>true</AddRazorSupportForMvc>
     <AssemblyName>MW.Blazor.TreeComponent</AssemblyName>
     <RootNamespace>MW.Blazor</RootNamespace>
   </PropertyGroup>
@@ -25,7 +29,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.Browser" Version="3.0.0-preview4-19216-03" />
   </ItemGroup>
 
 </Project>
