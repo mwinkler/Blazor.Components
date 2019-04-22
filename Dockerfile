@@ -1,8 +1,10 @@
-FROM mcr.microsoft.com/dotnet/core/aspnet:3.0-stretch-slim AS base
+#FROM mcr.microsoft.com/dotnet/core/aspnet:3.0-stretch-slim AS base
+FROM mcr.microsoft.com/dotnet/core-nightly/aspnet:3.0 AS base
 WORKDIR /app
 EXPOSE 80
 
-FROM mcr.microsoft.com/dotnet/core/sdk:3.0-stretch AS build
+#FROM mcr.microsoft.com/dotnet/core/sdk:3.0-stretch AS build
+FROM mcr.microsoft.com/dotnet/core-nightly/sdk:3.0 AS build
 WORKDIR /src
 COPY ["example/ComponentsDemo/ComponentsDemo.csproj", "example/ComponentsDemo/"]
 COPY ["src/PagePanelComponent/PagePanelComponent.csproj", "src/PagePanelComponent/"]
