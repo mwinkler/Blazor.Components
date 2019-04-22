@@ -33,6 +33,14 @@ Build for ASP.NET Core 3.0.0-preview4
 - [x] Support EventCallback<>
 
 
+**Change Log**
+- 1.1.1
+  - Convert from razor to blazor lib
+- 1.1.0
+  - Update to .NET Core 3 preview4
+  - Implement EventCallback
+  - Breaking Change: SelectedNodes (```IList<TItem>```) -> SelectedNode (```TItem```)
+
 ## Tag Selector
 
 ![](https://raw.githubusercontent.com/mwinkler/Blazor.Components/master/doc/tag-selector.gif)
@@ -55,6 +63,14 @@ Build for ASP.NET Core 3.0.0-preview4
 - [ ] Disabling selection of items
 - [x] Event population (OnSelect, OnRemove)
 - [x] Support EventCallback<>
+
+**Change Log**
+- 1.1.1
+  - Convert from razor to blazor lib
+  - Add EventCallback for SelectedTags
+- 1.1.0
+  - Update to .NET Core 3 preview4
+  - Implement EventCallback
 
 ## Page Panel
 
@@ -101,3 +117,10 @@ Build for ASP.NET Core 3.0.0-preview4
 
 [Example](https://github.com/mwinkler/Blazor.Components/blob/master/example/ComponentsDemo/Pages/PagePanelSample.razor)  
 [Nuget: MW.Blazor.PagePanel](https://www.nuget.org/packages/MW.Blazor.PagePanel/)
+
+**Change Log**
+- 1.1.1
+  - Convert from razor to blazor lib
+- 1.1.0
+  - Update to .NET Core 3 preview4
+  - Use CascadeValue to provide current page index
