@@ -1,19 +1,24 @@
 # Blazor Components
 
-Some Blazor components I'm working on.  
+Some Blazor components I'm working on:
+- [Tree](#tree)
+- [Tag Selector](#tagselector)
+- [Page Panel](#pagepanel)
+
 Build for ASP.NET Core 3.0.0-preview4
 
 ![Build status](https://hdsonix.visualstudio.com/Blazor%20Components/_apis/build/status/Blazor%20Components-ASP.NET%20Core-CI)
 
-## Tree
+
+## <a name="tree"></a>Tree
 
 ![](https://raw.githubusercontent.com/mwinkler/Blazor.Components/master/doc/tree.png)
 
 ```html
 <Tree 
-    Nodes=@Items 
-    SelectedNode=@SelectedItem 
-    ChildSelector=@(item => item.Childs)>
+    Nodes="@Items" 
+    SelectedNode="@SelectedItem" 
+    ChildSelector="@(item => item.Childs)">
     <TitleTemplate>@context.Text</TitleTemplate>
 </Tree>
 ```
@@ -38,20 +43,24 @@ Build for ASP.NET Core 3.0.0-preview4
   - Convert from razor to blazor lib
 - 1.1.0
   - Update to .NET Core 3 preview4
+  - Move to namespace ```MW.Blazor```
   - Implement EventCallback
   - Breaking Change: SelectedNodes (```IList<TItem>```) -> SelectedNode (```TItem```)
 
-## Tag Selector
+## <a name="tagselector"></a>Tag Selector
 
 ![](https://raw.githubusercontent.com/mwinkler/Blazor.Components/master/doc/tag-selector.gif)
 
 ```html
-<TagSelector SelectableTags=@Tags SelectedTags=@Selected Filter=@((item,term) => item.Contains(term))>
+<TagSelector 
+    SelectableTags="@Tags" 
+    SelectedTags="@Selected" 
+    Filter="@((item,term) => item.Contains(term))">
     <TagTemplate>@context</TagTemplate>
 </TagSelector>
 ```
 
-[Example](https://github.com/mwinkler/Blazor.Components/blob/master/example/ComponentsDemo/Pages/TagSelectorSample.razor)  
+[Usage example](https://github.com/mwinkler/Blazor.Components/blob/master/example/ComponentsDemo/Pages/TagSelectorSample.razor)  
 [Nuget: MW.Blazor.TagSelector](https://www.nuget.org/packages/MW.Blazor.TagSelector/)
 
 **Features / Tasks**
@@ -70,14 +79,15 @@ Build for ASP.NET Core 3.0.0-preview4
   - Add EventCallback for SelectedTags
 - 1.1.0
   - Update to .NET Core 3 preview4
+  - Move to namespace ```MW.Blazor```
   - Implement EventCallback
 
-## Page Panel
+## <a name="pagepanel"></a>Page Panel
 
 ![](https://raw.githubusercontent.com/mwinkler/Blazor.Components/master/doc/page-panel.gif)
 
 ```html
-<PagePanel PageIndex=@CurrentPage Style="height:250px">
+<PagePanel PageIndex="@CurrentPage" Style="height:250px">
     <Page Widths="50%;100%;200%">
         <div class="d-flex justify-content-center align-items-center h-100 text-white h4" style="background:#00ff90">
             Page 1
@@ -100,13 +110,16 @@ Build for ASP.NET Core 3.0.0-preview4
     </Page>
 </PagePanel>
 
-<button onclick=@{() => CurrentPage-- }><</button>
+<button onclick="@(() => CurrentPage--)"><</button>
 @CurrentPage
-<button onclick=@{() => CurrentPage++ }>></button>
+<button onclick="@(() => CurrentPage++)">></button>
 
 
 @functions { int CurrentPage { get; set; } }
 ```
+
+[Usage example](https://github.com/mwinkler/Blazor.Components/blob/master/example/ComponentsDemo/Pages/PagePanelSample.razor)  
+[Nuget: MW.Blazor.PagePanel](https://www.nuget.org/packages/MW.Blazor.PagePanel/)
 
 **Features / Tasks**
 - [x] Multiple pages on same page
@@ -114,13 +127,10 @@ Build for ASP.NET Core 3.0.0-preview4
 - [ ] Property for transition time
 - [ ] Simplify 'Widths' property
 
-
-[Example](https://github.com/mwinkler/Blazor.Components/blob/master/example/ComponentsDemo/Pages/PagePanelSample.razor)  
-[Nuget: MW.Blazor.PagePanel](https://www.nuget.org/packages/MW.Blazor.PagePanel/)
-
 **Change Log**
 - 1.1.1
   - Convert from razor to blazor lib
 - 1.1.0
   - Update to .NET Core 3 preview4
+  - Move to namespace ```MW.Blazor```
   - Use CascadeValue to provide current page index
