@@ -7,8 +7,6 @@
 <p style="margin-top: 2rem">
     Selected: @selectedNode?.Text<br />
     Expanded: @string.Join(", ", ExpandedNodes.Select(i => i.Text))<br />
-
-    <button onclick="@StateHasChanged">Update</button>
 </p>
 
 @functions {
