@@ -10,6 +10,8 @@ Build for ASP.NET Core 3.0.0-preview4
 ![Build status](https://hdsonix.visualstudio.com/Blazor%20Components/_apis/build/status/Blazor%20Components-ASP.NET%20Core-CI)
 
 
+See running example: http://blazor-components-demo.westeurope.azurecontainer.io
+
 ## <a name="tree"></a>Tree
 
 ![](https://raw.githubusercontent.com/mwinkler/Blazor.Components/master/doc/tree.png)
