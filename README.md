@@ -25,8 +25,8 @@ See running example: http://blazor-components-demo.westeurope.azurecontainer.io
 </Tree>
 ```
 
-[Example](https://github.com/mwinkler/Blazor.Components/blob/master/example/ComponentsDemo/Pages/TreeSample.razor)  
-[Nuget: MW.Blazor.Tree](https://www.nuget.org/packages/MW.Blazor.Tree/)
+[Code example](https://github.com/mwinkler/Blazor.Components/blob/master/example/ComponentsDemo/Pages/TreeSample.razor)  
+[Nuget package: MW.Blazor.Tree](https://www.nuget.org/packages/MW.Blazor.Tree/)
 
 **Features / Tasks**
 - [x] Generic data support
@@ -62,8 +62,8 @@ See running example: http://blazor-components-demo.westeurope.azurecontainer.io
 </TagSelector>
 ```
 
-[Usage example](https://github.com/mwinkler/Blazor.Components/blob/master/example/ComponentsDemo/Pages/TagSelectorSample.razor)  
-[Nuget: MW.Blazor.TagSelector](https://www.nuget.org/packages/MW.Blazor.TagSelector/)
+[Code example](https://github.com/mwinkler/Blazor.Components/blob/master/example/ComponentsDemo/Pages/TagSelectorSample.razor)  
+[Nuget package: MW.Blazor.TagSelector](https://www.nuget.org/packages/MW.Blazor.TagSelector/)
 
 **Features / Tasks**
 - [x] Generic data support
@@ -120,8 +120,8 @@ See running example: http://blazor-components-demo.westeurope.azurecontainer.io
 @functions { int CurrentPage { get; set; } }
 ```
 
-[Usage example](https://github.com/mwinkler/Blazor.Components/blob/master/example/ComponentsDemo/Pages/PagePanelSample.razor)  
-[Nuget: MW.Blazor.PagePanel](https://www.nuget.org/packages/MW.Blazor.PagePanel/)
+[Code example](https://github.com/mwinkler/Blazor.Components/blob/master/example/ComponentsDemo/Pages/PagePanelSample.razor)  
+[Nuget package: MW.Blazor.PagePanel](https://www.nuget.org/packages/MW.Blazor.PagePanel/)
 
 **Features / Tasks**
 - [x] Multiple pages on same page
