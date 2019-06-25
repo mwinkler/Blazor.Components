@@ -24,12 +24,12 @@
     </Page>
 </PagePanel>
 
-<button onclick="@(() => CurrentPage-- )">&lt;</button>
+<button @onclick="@(() => CurrentPage-- )">&lt;</button>
 @CurrentPage
-<button onclick="@(() => CurrentPage++ )">&gt;</button>
+<button @onclick="@(() => CurrentPage++ )">&gt;</button>
 
 
-@functions {
+@code {
 
     int CurrentPage { get; set; }
 

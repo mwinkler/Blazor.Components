@@ -1,7 +1,7 @@
 ﻿
 @page "/PagePanel"
 
-<PagePanel PageIndex="@CurrentPage" Class="mb-2" Style="height:250px">
+<PagePanel PageIndex="CurrentPage" Class="mb-2" Style="height:250px">
     <Page Widths="50%;100%;200%">
         <div class="d-flex justify-content-center align-items-center h-100 text-white h4" style="background:#00ff90">
             Page 1
@@ -24,12 +24,12 @@
     </Page>
 </PagePanel>
 
-<button onclick="@(() => CurrentPage-- )">&lt;</button>
+<button @onclick="@(() => CurrentPage-- )">&lt;</button>
 @CurrentPage
-<button onclick="@(() => CurrentPage++ )">&gt;</button>
+<button @onclick="@(() => CurrentPage++ )">&gt;</button>
 
 
-@functions {
+@code {
 
     int CurrentPage { get; set; }
 

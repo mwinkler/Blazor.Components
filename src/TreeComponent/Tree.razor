@@ -1,5 +1,4 @@
-﻿@using MW.Blazor
-
+﻿
 @typeparam TNode
 
 <div class="uic-tree @(Visible ? "" : "uic-tree--hidden")">
@@ -14,13 +13,13 @@
             
             @if (hasChilds)
             {
-                <span class="uic-tree__icon" onclick="@(() => OnToggleNode(node, !nodeExpanded))">
+                <span class="uic-tree__icon" @onclick="@(() => OnToggleNode(node, !nodeExpanded))">
                     <i class="@(nodeExpanded ? Style.CollapseNodeIconClass : Style.ExpandNodeIconClass)"></i>
                 </span>
             }
 
             <div class="uic-tree__title">
-                <span class="@Style.NodeTitleClass @(nodeSelected ? Style.NodeTitleSelectedClass : "")" onclick="@(() => OnSelectNode(node))">
+                <span class="@Style.NodeTitleClass @(nodeSelected ? Style.NodeTitleSelectedClass : "")" @onclick="@(() => OnSelectNode(node))">
                     @TitleTemplate(node)
                 </span>
             </div>
@@ -28,15 +27,15 @@
             @if (hasChilds)
             {
                 <Tree 
-                    Nodes="@ChildSelector(node)"
-                    TitleTemplate="@TitleTemplate" 
-                    ChildSelector="@ChildSelector"
-                    ExpandedNodes="@ExpandedNodes"
-                    ExpandedNodesChanged="@ExpandedNodesChanged"
-                    SelectedNode="@SelectedNode"
-                    SelectedNodeChanged="@SelectedNodeChanged"
-                    Visible="@nodeExpanded"
-                    HasChildNodes="@HasChildNodes" />
+                    Nodes="ChildSelector(node)"
+                    TitleTemplate="TitleTemplate" 
+                    ChildSelector="ChildSelector"
+                    ExpandedNodes="ExpandedNodes"
+                    ExpandedNodesChanged="ExpandedNodesChanged"
+                    SelectedNode="SelectedNode"
+                    SelectedNodeChanged="SelectedNodeChanged"
+                    Visible="nodeExpanded"
+                    HasChildNodes="HasChildNodes" />
             }
             
         </div>
@@ -44,7 +43,7 @@
 
 </div>
 
-@functions {
+@code {
 
     [Parameter] IEnumerable<TNode> Nodes { get; set; }
 

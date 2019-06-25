@@ -13,11 +13,15 @@
     <link rel="stylesheet" href="css/site.css" />
     <link rel="stylesheet" href="css/components.css" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" href="_content/tagselectorcomponent/styles.css" />
+    <link rel="stylesheet" href="_content/pagepanelcomponent/styles.css" />
+    <link rel="stylesheet" href="_content/treecomponent/styles.css" />
 </head>
 <body>
     <app>@(await Html.RenderComponentAsync<App>())</app>
 
     <script src="_framework/blazor.server.js"></script>
-    <script src="interop.js"></script>
+    <script src="_content/pagepanelcomponent/interop.js"></script>
+    <script src="_content/tagselectorcomponent/interop.js"></script>
 </body>
 </html>

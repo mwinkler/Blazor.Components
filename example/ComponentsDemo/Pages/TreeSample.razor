@@ -1,6 +1,6 @@
 ﻿@page "/Tree"
 
-<Tree Nodes="@Items" ChildSelector="@(item => item.Childs)" bind-SelectedNode="@selectedNode" bind-ExpandedNodes="@ExpandedNodes" HasChildNodes="@(item => item.Childs?.Any() == true)">
+<Tree Nodes="Items" ChildSelector="@(item => item.Childs)" @bind-SelectedNode="selectedNode" @bind-ExpandedNodes="ExpandedNodes" HasChildNodes="@(item => item.Childs?.Any() == true)">
     <TitleTemplate>@context.Text</TitleTemplate>
 </Tree>
 
@@ -9,7 +9,7 @@
     Expanded: @string.Join(", ", ExpandedNodes.Select(i => i.Text))<br />
 </p>
 
-@functions {
+@code {
 
     public class Item
     {

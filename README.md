@@ -5,7 +5,7 @@ Some Blazor components I'm working on:
 - [Tag Selector](#tagselector)
 - [Page Panel](#pagepanel)
 
-Build for ASP.NET Core 3.0.0-preview4
+Build for ASP.NET Core 3.0-preview6
 
 ![Build status](https://hdsonix.visualstudio.com/Blazor%20Components/_apis/build/status/Blazor%20Components-ASP.NET%20Core-CI)
 
@@ -18,8 +18,8 @@ See running example: https://blazorcomponents.z6.web.core.windows.net/
 
 ```html
 <Tree 
-    Nodes="@Items" 
-    SelectedNode="@SelectedItem" 
+    Nodes="Items" 
+    SelectedNode="SelectedItem" 
     ChildSelector="@(item => item.Childs)">
     <TitleTemplate>@context.Text</TitleTemplate>
 </Tree>

@@ -1,10 +1,9 @@
-﻿@using MW.Blazor
-
+﻿
 <div class="uic-pagepanel__page @Class" style="@BuildCurrentPageStyle() @Style">
     @ChildContent
 </div>
 
-@functions {
+@code {
 
     [Parameter] IEnumerable<PageState> States { get; set; } = Enumerable.Empty<PageState>();
 
