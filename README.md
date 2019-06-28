@@ -25,6 +25,11 @@ See running example: https://blazorcomponents.z6.web.core.windows.net/
 </Tree>
 ```
 
+**Client Dependencies**
+```html
+    <link rel="stylesheet" href="_content/mwblazortree/styles.css" />
+```
+
 [Code example](https://github.com/mwinkler/Blazor.Components/blob/master/example/ComponentsDemo/Pages/TreeSample.razor)  
 [Nuget package: MW.Blazor.Tree](https://www.nuget.org/packages/MW.Blazor.Tree/)
 
@@ -41,6 +46,8 @@ See running example: https://blazorcomponents.z6.web.core.windows.net/
 
 
 **Change Log**
+- 1.1.2
+  - Update to .NET Core 3.0-preview6
 - 1.1.1
   - Convert from razor to blazor lib
 - 1.1.0
@@ -61,7 +68,11 @@ See running example: https://blazorcomponents.z6.web.core.windows.net/
     <TagTemplate>@context</TagTemplate>
 </TagSelector>
 ```
-
+**Client Dependencies**
+```html
+    <link rel="stylesheet" href="_content/mwblazortagselector/styles.css" />
+    <script src="_content/mwblazortagselector/interop.js"></script>
+```
 [Code example](https://github.com/mwinkler/Blazor.Components/blob/master/example/ComponentsDemo/Pages/TagSelectorSample.razor)  
 [Nuget package: MW.Blazor.TagSelector](https://www.nuget.org/packages/MW.Blazor.TagSelector/)
 
@@ -76,6 +87,8 @@ See running example: https://blazorcomponents.z6.web.core.windows.net/
 - [x] Support EventCallback<>
 
 **Change Log**
+- 1.1.2
+  - Update to .NET Core 3.0-preview6
 - 1.1.1
   - Convert from razor to blazor lib
   - Add EventCallback for SelectedTags
@@ -120,6 +133,10 @@ See running example: https://blazorcomponents.z6.web.core.windows.net/
 @functions { int CurrentPage { get; set; } }
 ```
 
+**Client Dependencies**
+```html
+    <link rel="stylesheet" href="_content/mwblazorpagepanel/styles.css" />
+```
 [Code example](https://github.com/mwinkler/Blazor.Components/blob/master/example/ComponentsDemo/Pages/PagePanelSample.razor)  
 [Nuget package: MW.Blazor.PagePanel](https://www.nuget.org/packages/MW.Blazor.PagePanel/)
 
@@ -130,6 +147,8 @@ See running example: https://blazorcomponents.z6.web.core.windows.net/
 - [ ] Simplify 'Widths' property
 
 **Change Log**
+- 1.1.2
+  - Update to .NET Core 3.0-preview6
 - 1.1.1
   - Convert from razor to blazor lib
 - 1.1.0
