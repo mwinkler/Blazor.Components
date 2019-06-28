@@ -27,7 +27,7 @@ See running example: https://blazorcomponents.z6.web.core.windows.net/
 
 **Client Dependencies**
 ```html
-    <link rel="stylesheet" href="_content/mwblazortree/styles.css" />
+<link rel="stylesheet" href="_content/mwblazortree/styles.css" />
 ```
 
 [Code example](https://github.com/mwinkler/Blazor.Components/blob/master/example/ComponentsDemo/Pages/TreeSample.razor)  
@@ -70,8 +70,8 @@ See running example: https://blazorcomponents.z6.web.core.windows.net/
 ```
 **Client Dependencies**
 ```html
-    <link rel="stylesheet" href="_content/mwblazortagselector/styles.css" />
-    <script src="_content/mwblazortagselector/interop.js"></script>
+<link rel="stylesheet" href="_content/mwblazortagselector/styles.css" />
+<script src="_content/mwblazortagselector/interop.js"></script>
 ```
 [Code example](https://github.com/mwinkler/Blazor.Components/blob/master/example/ComponentsDemo/Pages/TagSelectorSample.razor)  
 [Nuget package: MW.Blazor.TagSelector](https://www.nuget.org/packages/MW.Blazor.TagSelector/)
@@ -135,7 +135,7 @@ See running example: https://blazorcomponents.z6.web.core.windows.net/
 
 **Client Dependencies**
 ```html
-    <link rel="stylesheet" href="_content/mwblazorpagepanel/styles.css" />
+<link rel="stylesheet" href="_content/mwblazorpagepanel/styles.css" />
 ```
 [Code example](https://github.com/mwinkler/Blazor.Components/blob/master/example/ComponentsDemo/Pages/PagePanelSample.razor)  
 [Nuget package: MW.Blazor.PagePanel](https://www.nuget.org/packages/MW.Blazor.PagePanel/)
