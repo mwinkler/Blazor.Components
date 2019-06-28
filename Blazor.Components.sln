@@ -17,7 +17,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PagePanelComponent", "src\P
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ComponentsDemo", "example\ComponentsDemo\ComponentsDemo.csproj", "{6AF73343-8342-49D7-9E7A-E5615CD5CA6D}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "example", "example", "{E516B083-7EFB-4021-B770-FD75617C7E63}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "example", "example", "{13C92F35-D1C8-405C-8EDD-199A4457D657}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ComponentsDemoWasm", "example\ComponentsDemoWasm\ComponentsDemoWasm.csproj", "{D113C0CD-6946-4DCC-B21A-E82294F5F2F4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,12 +43,17 @@ Global
 		{6AF73343-8342-49D7-9E7A-E5615CD5CA6D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6AF73343-8342-49D7-9E7A-E5615CD5CA6D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6AF73343-8342-49D7-9E7A-E5615CD5CA6D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D113C0CD-6946-4DCC-B21A-E82294F5F2F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D113C0CD-6946-4DCC-B21A-E82294F5F2F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D113C0CD-6946-4DCC-B21A-E82294F5F2F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D113C0CD-6946-4DCC-B21A-E82294F5F2F4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{6AF73343-8342-49D7-9E7A-E5615CD5CA6D} = {E516B083-7EFB-4021-B770-FD75617C7E63}
+		{6AF73343-8342-49D7-9E7A-E5615CD5CA6D} = {13C92F35-D1C8-405C-8EDD-199A4457D657}
+		{D113C0CD-6946-4DCC-B21A-E82294F5F2F4} = {13C92F35-D1C8-405C-8EDD-199A4457D657}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {795B1072-6728-49DC-84B9-62D1C52F68B8}
