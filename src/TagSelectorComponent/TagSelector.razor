@@ -15,7 +15,7 @@
                 </span>
             }
         }
-        <input type="text" @onfocus="@OpenSelection" @onblur="@CloseSelection" @onkeyup="@OnTextKeypress" @ref="TextBox" />
+        <input type="text" @onfocus="@OpenSelection" @onblur="@CloseSelection" @onkeyup="@OnTextKeypress" @ref="TextBox" @ref:suppressField />
     </div>
 
     @if (_selectableItems.Any())
@@ -35,24 +35,24 @@
 
 @code {
 
-    [Parameter] IEnumerable<TItem> SelectableTags { get; set; }
+    [Parameter] public IEnumerable<TItem> SelectableTags { get; set; }
 
-    [Parameter] IList<TItem> SelectedTags { get; set; } = new List<TItem>();
-    [Parameter] EventCallback<IList<TItem>> SelectedTagsChanged { get; set; }
+    [Parameter] public IList<TItem> SelectedTags { get; set; } = new List<TItem>();
+    [Parameter] public EventCallback<IList<TItem>> SelectedTagsChanged { get; set; }
 
-    [Parameter] TagSelectorStyle Style { get; set; } = TagSelectorStyle.Bootstrap;
+    [Parameter] public TagSelectorStyle Style { get; set; } = TagSelectorStyle.Bootstrap;
 
-    [Parameter] RenderFragment<TItem> TagTemplate { get; set; }
+    [Parameter] public RenderFragment<TItem> TagTemplate { get; set; }
 
-    [Parameter] Func<TItem, string, bool> Filter { get; set; }
+    [Parameter] public Func<TItem, string, bool> Filter { get; set; }
 
-    [Parameter] EventCallback<TItem> OnTagSelected { get; set; }
+    [Parameter] public EventCallback<TItem> OnTagSelected { get; set; }
 
-    [Parameter] EventCallback<TItem> OnTagRemoved { get; set; }
+    [Parameter] public EventCallback<TItem> OnTagRemoved { get; set; }
 
     private bool _selectionOpen;
     private string _filterText;
-    private ElementRef TextBox;
+    private ElementReference TextBox;
     private int _selectableIndex = 0;
     private IList<TItem> _selectableItems = new List<TItem>();
 

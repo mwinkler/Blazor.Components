@@ -45,23 +45,23 @@
 
 @code {
 
-    [Parameter] IEnumerable<TNode> Nodes { get; set; }
+    [Parameter] public IEnumerable<TNode> Nodes { get; set; }
 
-    [Parameter] RenderFragment<TNode> TitleTemplate { get; set; }
+    [Parameter] public RenderFragment<TNode> TitleTemplate { get; set; }
 
-    [Parameter] TNode SelectedNode { get; set; }
-    [Parameter] EventCallback<TNode> SelectedNodeChanged { get; set; }
+    [Parameter] public TNode SelectedNode { get; set; }
+    [Parameter] public EventCallback<TNode> SelectedNodeChanged { get; set; }
 
-    [Parameter] Func<TNode, IEnumerable<TNode>> ChildSelector { get; set; }
+    [Parameter] public Func<TNode, IEnumerable<TNode>> ChildSelector { get; set; }
 
-    [Parameter] IList<TNode> ExpandedNodes { get; set; } = new List<TNode>();
-    [Parameter] EventCallback<IList<TNode>> ExpandedNodesChanged { get; set; }
+    [Parameter] public IList<TNode> ExpandedNodes { get; set; } = new List<TNode>();
+    [Parameter] public EventCallback<IList<TNode>> ExpandedNodesChanged { get; set; }
 
-    [Parameter] TreeStyle Style { get; set; } = TreeStyle.Bootstrap;
+    [Parameter] public TreeStyle Style { get; set; } = TreeStyle.Bootstrap;
 
-    [Parameter] bool Visible { get; set; } = true;
+    [Parameter] public bool Visible { get; set; } = true;
 
-    [Parameter] Func<TNode, bool> HasChildNodes { get; set; } = node => true;
+    [Parameter] public Func<TNode, bool> HasChildNodes { get; set; } = node => true;
 
     private void OnToggleNode(TNode node, bool expand)
     {

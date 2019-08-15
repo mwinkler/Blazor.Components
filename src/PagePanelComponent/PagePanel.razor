@@ -9,13 +9,13 @@
 
 @code {
 
-    [Parameter] RenderFragment ChildContent { get; set; }
+    [Parameter] public RenderFragment ChildContent { get; set; }
 
-    [Parameter] int PageIndex { get; set; }
+    [Parameter] public int PageIndex { get; set; }
 
-    [Parameter] string Style { get; set; }
+    [Parameter] public string Style { get; set; }
 
-    [Parameter] string Class { get; set; }
+    [Parameter] public string Class { get; set; }
 
     private string LeftPosition() => $"-{PageIndex * 100}%";
 

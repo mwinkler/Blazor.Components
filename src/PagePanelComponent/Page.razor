@@ -5,19 +5,19 @@
 
 @code {
 
-    [Parameter] IEnumerable<PageState> States { get; set; } = Enumerable.Empty<PageState>();
+    [Parameter] public IEnumerable<PageState> States { get; set; } = Enumerable.Empty<PageState>();
 
-    [Parameter] string Widths { get; set; }
+    [Parameter] public string Widths { get; set; }
 
     //[Parameter] IEnumerable<int> Widths { get; set; } = Enumerable.Empty<int>();
 
-    [CascadingParameter] int PageIndex { get; set; }
+    [CascadingParameter] public int PageIndex { get; set; }
 
-    [Parameter] RenderFragment ChildContent { get; set; }
+    [Parameter] public RenderFragment ChildContent { get; set; }
 
-    [Parameter] string Class { get; set; }
+    [Parameter] public string Class { get; set; }
 
-    [Parameter] string Style { get; set; }
+    [Parameter] public string Style { get; set; }
 
     string BuildCurrentPageStyle()
     {

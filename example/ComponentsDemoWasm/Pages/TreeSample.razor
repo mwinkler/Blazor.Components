@@ -61,7 +61,7 @@
     IList<Item> ExpandedNodes = new List<Item>();
     Item selectedNode;
 
-    protected override void OnInit()
+    protected override void OnInitialized()
     {
         ExpandedNodes.Add(Items.Skip(1).First());
         ExpandedNodes.Add(Items.Skip(1).Take(1).First().Childs.Skip(1).First());
