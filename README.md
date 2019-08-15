@@ -5,7 +5,7 @@ Some Blazor components I'm working on:
 - [Tag Selector](#tagselector)
 - [Page Panel](#pagepanel)
 
-Build for ASP.NET Core 3.0-preview6
+Build for ASP.NET Core 3.0-preview8
 
 <!--![Build status](https://hdsonix.visualstudio.com/Blazor%20Components/_apis/build/status/Blazor%20Components-ASP.NET%20Core-CI)-->
 
