@@ -1,0 +1,29 @@
+name: Build and Publish Tree Component NuGet package
+
+on:
+  push:
+    branches:
+    - refs/tags/tree/*
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v1
+    
+    - uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 3.0.100-preview8-013656
+    
+    - run: dotnet pack -c Release -o ./drop ./src/TreeComponent/TreeComponent.csproj
+#    - run: dotnet pack -c Release -o ./drop ./src/TagSelectorComponent/TagSelectorComponent.csproj
+#    - run: dotnet pack -c Release -o ./drop ./src/PagePanelComponent/PagePanelComponent.csproj
+
+    - run: dotnet push ./drop/*.nupkg -k ${{secret.NUGET_API_KEY}} -s https://www.nuget.org
+    
+#    - uses: actions/upload-artifact@master
+#      with:
+#        name: NuGet Packages
+#        path: ./drop
