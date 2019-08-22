@@ -1,6 +1,6 @@
 name: Build NuGet packages
 
-on: [push]
+
 
 jobs:
   build:
@@ -10,18 +10,15 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     
-    - name: Setup .NET Core
-      uses: actions/setup-dotnet@v1
+    - uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 3.0.100-preview8-013656
     
-    - name: Build NuGet packages
-      run: dotnet pack -c Release -o ./drop ./src/TreeComponent/TreeComponent.csproj
+    - run: dotnet pack -c Release -o ./drop ./src/TreeComponent/TreeComponent.csproj
     - run: dotnet pack -c Release -o ./drop ./src/TagSelectorComponent/TagSelectorComponent.csproj
     - run: dotnet pack -c Release -o ./drop ./src/PagePanelComponent/PagePanelComponent.csproj
     
-    - name: Upload NuGet package
-      uses: actions/upload-artifact@master
+    - uses: actions/upload-artifact@master
       with:
-        name: TreeComponent Nuget Package
+        name: NuGet Packages
         path: ./drop
