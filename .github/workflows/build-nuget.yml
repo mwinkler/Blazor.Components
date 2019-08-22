@@ -2,8 +2,8 @@ name: Build NuGet packages
 
 on:
   push:
-    tags:
-    - tree/*
+    branches:
+    - refs/tags/tree/*
 
 jobs:
   build:
