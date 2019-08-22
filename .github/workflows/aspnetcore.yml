@@ -1,4 +1,4 @@
-name: ASP.NET Core CI
+name: Build NuGet packages
 
 on: [push]
 
@@ -15,8 +15,10 @@ jobs:
       with:
         dotnet-version: 3.0.100-preview8-013656
     
-    - name: Build NuGet package
+    - name: Build NuGet packages
       run: dotnet pack -c Release -o ./drop ./src/TreeComponent/TreeComponent.csproj
+      run: dotnet pack -c Release -o ./drop ./src/TagSelectorComponent/TagSelectorComponent.csproj
+      run: dotnet pack -c Release -o ./drop ./src/PagePanelComponent/PagePanelComponent.csproj
     
     - name: Upload NuGet package
       uses: actions/upload-artifact@master
