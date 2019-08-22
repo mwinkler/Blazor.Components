@@ -21,7 +21,7 @@ jobs:
 #    - run: dotnet pack -c Release -o ./drop ./src/TagSelectorComponent/TagSelectorComponent.csproj
 #    - run: dotnet pack -c Release -o ./drop ./src/PagePanelComponent/PagePanelComponent.csproj
 
-    - run: dotnet push ./drop/*.nupkg -k ${{ secrets.NUGET_API_KEY }} -s https://www.nuget.org
+    - run: dotnet nuget push ./drop/*.nupkg -k ${{ secrets.NUGET_API_KEY }} -s https://www.nuget.org
     
 #    - uses: actions/upload-artifact@master
 #      with:
