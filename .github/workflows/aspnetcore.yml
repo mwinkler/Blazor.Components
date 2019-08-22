@@ -9,9 +9,17 @@ jobs:
     
     steps:
     - uses: actions/checkout@v1
+    
     - name: Setup .NET Core
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 3.0.100-preview8-013656
-    - name: Build with dotnet
-      run: dotnet build ./src/TreeComponent/TreeComponent.csproj --configuration Release
+    
+    - name: Build NuGet package
+      run: dotnet pack -c Release -o ./drop ./src/TreeComponent/TreeComponent.csproj
+    
+    - name: Upload NuGet package
+      uses: actions/upload-artifact@master
+      with:
+        name: TreeComponent Nuget Package
+        path: ./drop
