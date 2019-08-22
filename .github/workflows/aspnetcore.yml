@@ -17,8 +17,8 @@ jobs:
     
     - name: Build NuGet packages
       run: dotnet pack -c Release -o ./drop ./src/TreeComponent/TreeComponent.csproj
-      run: dotnet pack -c Release -o ./drop ./src/TagSelectorComponent/TagSelectorComponent.csproj
-      run: dotnet pack -c Release -o ./drop ./src/PagePanelComponent/PagePanelComponent.csproj
+    - run: dotnet pack -c Release -o ./drop ./src/TagSelectorComponent/TagSelectorComponent.csproj
+    - run: dotnet pack -c Release -o ./drop ./src/PagePanelComponent/PagePanelComponent.csproj
     
     - name: Upload NuGet package
       uses: actions/upload-artifact@master
