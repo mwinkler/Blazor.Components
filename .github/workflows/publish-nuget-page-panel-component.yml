@@ -1,0 +1,22 @@
+name: Publish 'Page Panel' component NuGet package
+
+on:
+  push:
+    branches:
+    - refs/tags/page-panel/*
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v1
+    
+    - uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 3.0.100-preview8-013656
+    
+    - run: dotnet pack -c Release -o ./drop ./src/PagePanelComponent/PagePanelComponent.csproj
+
+    - run: dotnet nuget push ./drop/*.nupkg -k ${{ secrets.NUGET_API_KEY }} -s https://www.nuget.org

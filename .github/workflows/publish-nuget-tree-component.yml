@@ -1,4 +1,4 @@
-name: Build and Publish Tree Component NuGet package
+name: Publish 'Tree' component NuGet package
 
 on:
   push:
@@ -18,12 +18,5 @@ jobs:
         dotnet-version: 3.0.100-preview8-013656
     
     - run: dotnet pack -c Release -o ./drop ./src/TreeComponent/TreeComponent.csproj
-#    - run: dotnet pack -c Release -o ./drop ./src/TagSelectorComponent/TagSelectorComponent.csproj
-#    - run: dotnet pack -c Release -o ./drop ./src/PagePanelComponent/PagePanelComponent.csproj
 
     - run: dotnet nuget push ./drop/*.nupkg -k ${{ secrets.NUGET_API_KEY }} -s https://www.nuget.org
-    
-#    - uses: actions/upload-artifact@master
-#      with:
-#        name: NuGet Packages
-#        path: ./drop
