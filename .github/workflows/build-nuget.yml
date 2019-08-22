@@ -1,6 +1,9 @@
 name: Build NuGet packages
 
-
+on:
+  push:
+    tags:
+    - tree/*
 
 jobs:
   build:
