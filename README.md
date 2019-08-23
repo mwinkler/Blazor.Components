@@ -30,7 +30,8 @@ See running example: https://blazorcomponents.z6.web.core.windows.net/
 <link rel="stylesheet" href="_content/MW.Blazor.Tree/styles.css" />
 ```
 
-[Code example](https://github.com/mwinkler/Blazor.Components/blob/master/example/ComponentsDemo/Pages/TreeSample.razor)  
+[Code example](https://github.com/mwinkler/Blazor.Components/blob/master/example/ComponentsDemo/TreeSample.razor)  
+[Live Demo](https://blazorcomponents.z6.web.core.windows.net)  
 
 [![NuGet Status](https://img.shields.io/nuget/v/MW.Blazor.Tree.svg?style=flat&max-age=86400)](https://www.nuget.org/packages/MW.Blazor.Tree/)
 
@@ -77,7 +78,8 @@ See running example: https://blazorcomponents.z6.web.core.windows.net/
 <link rel="stylesheet" href="_content/MW.Blazor.TagSelector/styles.css" />
 <script src="_content/MW.Blazor.TagSelector/interop.js"></script>
 ```
-[Code example](https://github.com/mwinkler/Blazor.Components/blob/master/example/ComponentsDemo/Pages/TagSelectorSample.razor)  
+[Code example](https://github.com/mwinkler/Blazor.Components/blob/master/example/ComponentsDemo/TagSelectorSample.razor)  
+[Live Demo](https://blazorcomponents.z6.web.core.windows.net)  
 
 [![NuGet Status](https://img.shields.io/nuget/v/MW.Blazor.TagSelector.svg?style=flat&max-age=86400)](https://www.nuget.org/packages/MW.Blazor.TagSelector/)
 
@@ -92,6 +94,8 @@ See running example: https://blazorcomponents.z6.web.core.windows.net/
 - [x] Support EventCallback<>
 
 **Change Log**
+- 1.2
+  - Add new callback 'OnCreateTag' to catch user input and create tag on the fly ([Issue #1](https://github.com/mwinkler/Blazor.Components/issues/1))
 - 1.1.3
   - Update to .NET Core 3.0-preview8
 - 1.1.2
@@ -144,7 +148,8 @@ See running example: https://blazorcomponents.z6.web.core.windows.net/
 ```html
 <link rel="stylesheet" href="_content/MW.Blazor.PagePanel/styles.css" />
 ```
-[Code example](https://github.com/mwinkler/Blazor.Components/blob/master/example/ComponentsDemo/Pages/PagePanelSample.razor)  
+[Code example](https://github.com/mwinkler/Blazor.Components/blob/master/example/ComponentsDemo/PagePanelSample.razor)  
+[Live Demo](https://blazorcomponents.z6.web.core.windows.net)  
 
 [![NuGet Status](https://img.shields.io/nuget/v/MW.Blazor.PagePanel.svg?style=flat&max-age=86400)](https://www.nuget.org/packages/MW.Blazor.PagePanel/)
 
