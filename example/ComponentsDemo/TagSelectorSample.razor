@@ -1,5 +1,4 @@
-﻿@page "/TagSelector"
-
+﻿
 <TagSelector SelectableTags="Tags" @bind-SelectedTags="Selected" Filter="@((item,term) => item.Contains(term))">
     <TagTemplate>@context</TagTemplate>
 </TagSelector>

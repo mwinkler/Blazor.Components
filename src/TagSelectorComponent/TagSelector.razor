@@ -50,6 +50,8 @@
 
     [Parameter] public EventCallback<TItem> OnTagRemoved { get; set; }
 
+    [Parameter] public EventCallback<string> OnTagCreate { get; set; }
+
     private bool _selectionOpen;
     private string _filterText;
     private ElementReference TextBox;
@@ -102,6 +104,10 @@
                 if (_selectableItems.Any())
                 {
                     AddSelectedTag(_selectableItems[_selectableIndex], false);
+                }
+                else
+                {
+                    await OnTagCreate.InvokeAsync(_filterText);
                 }
                 break;
 

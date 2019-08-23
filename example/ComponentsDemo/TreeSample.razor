@@ -1,5 +1,4 @@
-﻿@page "/Tree"
-
+﻿
 <Tree Nodes="Items" ChildSelector="@(item => item.Childs)" @bind-SelectedNode="selectedNode" @bind-ExpandedNodes="ExpandedNodes" HasChildNodes="@(item => item.Childs?.Any() == true)">
     <TitleTemplate>@context.Text</TitleTemplate>
 </Tree>
