@@ -1,9 +1,6 @@
 name: Publish 'Tree' component NuGet package
 
-on:
-  push:
-    branches:
-    - refs/tags/tree/*
+on: push
 
 jobs:
   build:
@@ -15,7 +12,7 @@ jobs:
     
     - uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: 3.0.100-preview8-013656
+        dotnet-version: 3.0.100-preview9-014004
     
     - run: dotnet pack -c Release -o ./drop ./src/TreeComponent/TreeComponent.csproj
 
