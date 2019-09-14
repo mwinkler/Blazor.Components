@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="_content/MW.Blazor.Tree/styles.css" />
 </head>
 <body>
-    <app>@(await Html.RenderComponentAsync<App>())</app>
+    <app>@(await Html.RenderComponentAsync<App>(RenderMode.ServerPrerendered))</app>
 
     <script src="_framework/blazor.server.js"></script>
     <script src="_content/MW.Blazor.TagSelector/interop.js"></script>

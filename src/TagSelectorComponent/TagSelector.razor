@@ -1,4 +1,5 @@
 ﻿@using Microsoft.JSInterop
+@using Microsoft.AspNetCore.Components.Web
 
 @typeparam TItem
 @inject IJSRuntime JsRuntime
@@ -15,7 +16,7 @@
                 </span>
             }
         }
-        <input type="text" @onfocus="@OpenSelection" @onblur="@CloseSelection" @onkeyup="@OnTextKeypress" @ref="TextBox" @ref:suppressField />
+        <input type="text" @onfocus="@OpenSelection" @onblur="@CloseSelection" @onkeyup="@OnTextKeypress" @ref="TextBox" />
     </div>
 
     @if (_selectableItems.Any())
@@ -86,7 +87,7 @@
         _selectionOpen = false;
     }
 
-    private async Task OnTextKeypress(UIKeyboardEventArgs e)
+    private async Task OnTextKeypress(KeyboardEventArgs e)
     {
         switch (e.Key)
         {
