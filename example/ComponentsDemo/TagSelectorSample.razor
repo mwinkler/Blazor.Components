@@ -1,6 +1,5 @@
-﻿@page "/TagSelector"
-
-<TagSelector SelectableTags="Tags" @bind-SelectedTags="Selected" Filter="@((item,term) => item.Contains(term))">
+﻿
+<TagSelector SelectableTags="Tags" @bind-SelectedTags="Selected" Filter="@((item,term) => item.Contains(term))" OnCreateTag="OnCreateTag">
     <TagTemplate>@context</TagTemplate>
 </TagSelector>
 
@@ -10,5 +9,10 @@ Selected: @Selected.Count
 
     IEnumerable<string> Tags = new[] { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5", "Item 6" };
     IList<string> Selected = new List<string>();
+
+    void OnCreateTag(string tag)
+    {
+        Selected.Add(tag);
+    }
 
 }

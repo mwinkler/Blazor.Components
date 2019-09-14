@@ -51,6 +51,8 @@
 
     [Parameter] public EventCallback<TItem> OnTagRemoved { get; set; }
 
+    [Parameter] public EventCallback<string> OnCreateTag { get; set; }
+
     private bool _selectionOpen;
     private string _filterText;
     private ElementReference TextBox;
@@ -60,10 +62,9 @@
     private void AddSelectedTag(TItem item, bool closeSelection)
     {
         SelectedTags.Add(item);
-        _filterText = "";
+        ResetFilterText();
         UpdateSelectableItems();
         _selectionOpen = !closeSelection;
-        JsRuntime.InvokeAsync<object>("tagSelectorComponent.setValue", TextBox, "");
         OnTagSelected.InvokeAsync(item);
         SelectedTagsChanged.InvokeAsync(SelectedTags);
     }
@@ -87,6 +88,12 @@
         _selectionOpen = false;
     }
 
+    private void ResetFilterText()
+    {
+        _filterText = "";
+        JsRuntime.InvokeAsync<object>("tagSelectorComponent.setValue", TextBox, "");
+    }
+
     private async Task OnTextKeypress(KeyboardEventArgs e)
     {
         switch (e.Key)
@@ -103,6 +110,15 @@
                 if (_selectableItems.Any())
                 {
                     AddSelectedTag(_selectableItems[_selectableIndex], false);
+                }
+                else if (!string.IsNullOrEmpty(_filterText))
+                {
+                    if (OnCreateTag.HasDelegate)
+                    {
+                        await OnCreateTag.InvokeAsync(_filterText);
+
+                        ResetFilterText();
+                    }
                 }
                 break;
 

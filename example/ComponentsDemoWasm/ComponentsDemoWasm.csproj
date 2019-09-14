@@ -13,9 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\PagePanelComponent\PagePanelComponent.csproj" />
-    <ProjectReference Include="..\..\src\TagSelectorComponent\TagSelectorComponent.csproj" />
-    <ProjectReference Include="..\..\src\TreeComponent\TreeComponent.csproj" />
+    <ProjectReference Include="..\ComponentsDemo\ComponentsDemo.csproj" />
   </ItemGroup>
 
 </Project>
