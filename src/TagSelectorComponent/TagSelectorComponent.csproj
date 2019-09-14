@@ -8,7 +8,7 @@
     <AddRazorSupportForMvc>true</AddRazorSupportForMvc>
 
     <Authors>Matthias Winkler</Authors>
-    <Version>1.2</Version>
+    <Version>1.2.1</Version>
     <PackageProjectUrl>https://github.com/mwinkler/Blazor.Components</PackageProjectUrl>
     <RepositoryUrl>https://github.com/mwinkler/Blazor.Components</RepositoryUrl>
     <PackageTags>blazor component tag selection</PackageTags>

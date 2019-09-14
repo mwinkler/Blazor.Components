@@ -96,10 +96,10 @@ See running example: https://blazorcomponents.z6.web.core.windows.net/
 - [x] Support EventCallback<>
 
 **Change Log**
+- 1.2.1
+  - Update to .NET Core 3.0-preview9
 - 1.2
   - Add new callback 'OnCreateTag' to catch user input and create tag on the fly ([Issue #1](https://github.com/mwinkler/Blazor.Components/issues/1))
-- 1.1.4
-  - Update to .NET Core 3.0-preview9
 - 1.1.3
   - Update to .NET Core 3.0-preview8
 - 1.1.2
