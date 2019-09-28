@@ -12,7 +12,7 @@ jobs:
     
     - uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: 3.0.100-preview9-014004
+        dotnet-version: 3.0.100
     
     - run: dotnet pack -c Release -o ./drop ./src/TagSelectorComponent/TagSelectorComponent.csproj
 

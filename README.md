@@ -5,8 +5,6 @@ Some Blazor components I'm working on:
 - [Tag Selector](#tagselector)
 - [Page Panel](#pagepanel)
 
-Build for ASP.NET Core 3.0-preview9
-
 <!--![Build status](https://hdsonix.visualstudio.com/Blazor%20Components/_apis/build/status/Blazor%20Components-ASP.NET%20Core-CI)-->
 
 
@@ -49,6 +47,8 @@ See running example: https://blazorcomponents.z6.web.core.windows.net/
 
 
 **Change Log**
+- 1.1.5
+  - Update to .NET Core 3.0 (Final)
 - 1.1.4
   - Update to .NET Core 3.0-preview9
 - 1.1.3
@@ -96,6 +96,8 @@ See running example: https://blazorcomponents.z6.web.core.windows.net/
 - [x] Support EventCallback<>
 
 **Change Log**
+- 1.2.2
+  - Update to .NET Core 3.0 (Final)
 - 1.2.1
   - Update to .NET Core 3.0-preview9
 - 1.2
@@ -164,6 +166,8 @@ See running example: https://blazorcomponents.z6.web.core.windows.net/
 - [ ] Simplify 'Widths' property
 
 **Change Log**
+- 1.1.5
+  - Update to .NET Core 3.0 (Final)
 - 1.1.4
   - Update to .NET Core 3.0-preview9
 - 1.1.3
