@@ -12,8 +12,8 @@
     <Description>Blazor component</Description>
     <PackageProjectUrl>https://github.com/mwinkler/Blazor.Components</PackageProjectUrl>
     <PackageTags>blazor component page swipe</PackageTags>
-    <Version>1.1.5</Version>
-    <PackageReleaseNotes>Update to ASP.NET Core 3.0-preview9</PackageReleaseNotes>
+    <Version>1.1.6</Version>
+    <PackageReleaseNotes>Update to ASP.NET Core 3.0</PackageReleaseNotes>
     <RepositoryUrl>https://github.com/mwinkler/Blazor.Components</RepositoryUrl>
     <PackageLicenseUrl>https://github.com/mwinkler/Blazor.Components/blob/master/LICENSE</PackageLicenseUrl>
     <AssemblyName>MW.Blazor.PagePanelComponent</AssemblyName>
