@@ -47,6 +47,8 @@ See running example: https://blazorcomponents.z6.web.core.windows.net/
 
 
 **Change Log**
+- 1.1.7
+  - Pass 'Style' to childs
 - 1.1.6
   - Update to .NET Core 3.0 (Final)
 - 1.1.4
