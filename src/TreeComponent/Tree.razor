@@ -55,7 +55,7 @@
     [Parameter] public TNode SelectedNode { get; set; }
     [Parameter] public EventCallback<TNode> SelectedNodeChanged { get; set; }
 
-    [Parameter] public Func<TNode, IEnumerable<TNode>> ChildSelector { get; set; }
+    [Parameter] public Func<TNode, IEnumerable<TNode>> ChildSelector { get; set; } = node => null;
 
     [Parameter] public IList<TNode> ExpandedNodes { get; set; } = new List<TNode>();
     [Parameter] public EventCallback<IList<TNode>> ExpandedNodesChanged { get; set; }
@@ -87,5 +87,7 @@
         SelectedNode = node;
         SelectedNodeChanged.InvokeAsync(node);
     }
+
+
 
 }

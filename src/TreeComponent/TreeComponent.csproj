@@ -14,8 +14,9 @@
     <PackageProjectUrl>https://github.com/mwinkler/Blazor.Components</PackageProjectUrl>
     <RepositoryUrl>https://github.com/mwinkler/Blazor.Components</RepositoryUrl>
     <PackageTags>blazor tree component</PackageTags>
-    <Version>1.1.7</Version>
-    <PackageReleaseNotes>Pass 'Style' to childs</PackageReleaseNotes>
+    <Version>1.1.8</Version>
+    <PackageReleaseNotes>Pass 'Style' to childs
+Add default for 'ChildSelector' property</PackageReleaseNotes>
 	  <PackageLicenseUrl>https://github.com/mwinkler/Blazor.Components/blob/master/LICENSE</PackageLicenseUrl>
     <AssemblyName>MW.Blazor.TreeComponent</AssemblyName>
     <RootNamespace>MW.Blazor</RootNamespace>

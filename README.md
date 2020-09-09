@@ -47,6 +47,8 @@ See running example: https://blazorcomponents.z6.web.core.windows.net/
 
 
 **Change Log**
+- 1.1.8
+  - Add default for 'ChildSelector' property
 - 1.1.7
   - Pass 'Style' to childs
 - 1.1.6
