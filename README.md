@@ -18,7 +18,7 @@ See running example: https://blazorcomponents.z6.web.core.windows.net/
 <Tree 
     Nodes="Items" 
     SelectedNode="SelectedItem" 
-    ChildSelector="@(item => item.Childs)">
+    ChildSelector="item => item.Childs">
     <TitleTemplate>@context.Text</TitleTemplate>
 </Tree>
 ```
@@ -39,7 +39,7 @@ See running example: https://blazorcomponents.z6.web.core.windows.net/
 - [x] Item templating
 - [x] Styling (Bootstrap/Font Awesome)
 - [ ] Subtree loading indicator (lazy loading)
-- [ ] Disabling selection of nodes
+- [x] Disabling selection of nodes
 - [x] Single selection
 - [ ] Multi selection (Checkboxes)
 - [ ] Event population (OnSelect, OnExpand, ...)
@@ -47,6 +47,10 @@ See running example: https://blazorcomponents.z6.web.core.windows.net/
 
 
 **Change Log**
+- 1.2
+  - Added optional property 'NodeDisabled' to evaluate if node is selectable
+  - Added new style class 'NodeTitleSelectableClass' (set if node is selectable)
+  - Added new style class 'NodeTitleDisabledClass' (set if node is disabled)
 - 1.1.8
   - Add default for 'ChildSelector' property
 - 1.1.7

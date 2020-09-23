@@ -14,9 +14,12 @@
     <PackageProjectUrl>https://github.com/mwinkler/Blazor.Components</PackageProjectUrl>
     <RepositoryUrl>https://github.com/mwinkler/Blazor.Components</RepositoryUrl>
     <PackageTags>blazor tree component</PackageTags>
-    <Version>1.1.8</Version>
-    <PackageReleaseNotes>Pass 'Style' to childs
-Add default for 'ChildSelector' property</PackageReleaseNotes>
+    <Version>1.2</Version>
+    <PackageReleaseNotes>
+      - Add optional property 'NodeDisabled' to evaluate if node is disabled
+      - Add new style class 'NodeTitleSelectableClass' of selectable nodes
+      - Add new style class 'NodeTitleDisabledClass' of disabled nodes
+    </PackageReleaseNotes>
 	  <PackageLicenseUrl>https://github.com/mwinkler/Blazor.Components/blob/master/LICENSE</PackageLicenseUrl>
     <AssemblyName>MW.Blazor.TreeComponent</AssemblyName>
     <RootNamespace>MW.Blazor</RootNamespace>

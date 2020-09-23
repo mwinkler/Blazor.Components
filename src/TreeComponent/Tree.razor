@@ -9,6 +9,7 @@
     {
         var nodeExpanded = ExpandedNodes.Contains(node);
         var nodeSelected = node.Equals(SelectedNode);
+        var nodeDisabled = NodeDisabled(node);
         var hasChilds = HasChildNodes(node);
 
         <div>
@@ -21,7 +22,7 @@
             }
 
             <div class="uic-tree__title">
-                <span class="@Style.NodeTitleClass @(nodeSelected ? Style.NodeTitleSelectedClass : "")" @onclick="@(() => OnSelectNode(node))">
+                <span class="@Style.NodeTitleClass @(nodeSelected ? Style.NodeTitleSelectedClass : nodeDisabled ? Style.NodeTitleDisabledClass : Style.NodeTitleSelectableClass)" @onclick="@(() => OnSelectNode(node))">
                     @TitleTemplate(node)
                 </span>
             </div>
@@ -38,7 +39,8 @@
                     SelectedNodeChanged="SelectedNodeChanged"
                     Visible="nodeExpanded"
                     HasChildNodes="HasChildNodes"
-                    Style="Style" />
+                    Style="Style"
+                    NodeDisabled="NodeDisabled" />
             }
             
         </div>
@@ -66,6 +68,8 @@
 
     [Parameter] public Func<TNode, bool> HasChildNodes { get; set; } = node => true;
 
+    [Parameter] public Func<TNode, bool> NodeDisabled { get; set; } = node => false;
+
     private void OnToggleNode(TNode node, bool expand)
     {
         var expanded = ExpandedNodes.Contains(node);
@@ -84,10 +88,13 @@
 
     private void OnSelectNode(TNode node)
     {
+        if (NodeDisabled(node))
+        {
+            return;
+        }
+
         SelectedNode = node;
         SelectedNodeChanged.InvokeAsync(node);
     }
-
-
 
 }
