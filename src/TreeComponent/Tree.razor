@@ -14,7 +14,7 @@
 
         <div>
             
-            @if (hasChilds)
+            @if (hasChilds && nodeExpanded)
             {
                 <span class="uic-tree__icon" @onclick="@(() => OnToggleNode(node, !nodeExpanded))">
                     <i class="@(nodeExpanded ? Style.CollapseNodeIconClass : Style.ExpandNodeIconClass)"></i>
@@ -84,6 +84,8 @@
             ExpandedNodes.Add(node);
             ExpandedNodesChanged.InvokeAsync(ExpandedNodes);
         }
+    
+        StateHasChanged();
     }
 
     private void OnSelectNode(TNode node)
