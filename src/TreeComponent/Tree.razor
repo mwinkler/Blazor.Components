@@ -109,6 +109,8 @@
             // trigger 'ExpandedNodesChanged'
             await ExpandedNodesChanged.InvokeAsync(ExpandedNodes);
         }
+
+        StateHasChanged();
     }
 
     private void OnSelectNode(TNode node)
