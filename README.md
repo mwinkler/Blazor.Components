@@ -29,6 +29,7 @@ See running example: https://blazorcomponents.z6.web.core.windows.net/
 ```
 
 [Code example](https://github.com/mwinkler/Blazor.Components/blob/master/example/ComponentsDemo/TreeSample.razor)  
+[Code example (Lazy Loading)](https://github.com/mwinkler/Blazor.Components/blob/master/example/ComponentsDemo/TreeSampleLazy.razor)  
 [Live Demo](https://blazorcomponents.z6.web.core.windows.net)  
 
 [![NuGet Status](https://img.shields.io/nuget/v/MW.Blazor.Tree.svg?style=flat&max-age=86400)](https://www.nuget.org/packages/MW.Blazor.Tree/)

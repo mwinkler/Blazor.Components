@@ -11,8 +11,8 @@
         public IEnumerable<Item> Childs { get; set; }
     }
 
-    private IEnumerable<Item> CreateChilds(string prefix) =>
-        Enumerable.Range(0, new Random((int)DateTime.Now.Ticks).Next(0, 15))
+    private IEnumerable<Item> CreateChilds(string prefix, int minNodes) =>
+        Enumerable.Range(0, new Random((int)DateTime.Now.Ticks).Next(minNodes, 15))
         .Select(n => new Item { Text = $"{prefix}.{n}" })
         .ToArray();
 
@@ -20,7 +20,7 @@
 
     protected override void OnInitialized()
     {
-        Items = CreateChilds("Node");
+        Items = CreateChilds("Node", 5);
     }
 
     async Task OnNodeExpand(Item item)
@@ -29,7 +29,7 @@
         {
             await Task.Delay(500);
 
-            item.Childs = CreateChilds(item.Text);
+            item.Childs = CreateChilds(item.Text, 0);
         }
     }
 }
