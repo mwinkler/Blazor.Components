@@ -10,6 +10,7 @@
         var nodeExpanded = ExpandedNodes.Contains(node);
         var nodeSelected = node.Equals(SelectedNode);
         var nodeDisabled = NodeDisabled(node);
+        var nodeLoading = loadingNodes.Contains(node);
         var hasChilds = HasChildNodes(node);
 
         <div>
@@ -17,7 +18,7 @@
             @if (hasChilds)
             {
                 <span class="uic-tree__icon" @onclick="@(() => OnToggleNode(node, !nodeExpanded))">
-                    <i class="@(nodeExpanded ? Style.CollapseNodeIconClass : Style.ExpandNodeIconClass)"></i>
+                    <i class="@(nodeLoading ? Style.NodeLoadingClass : nodeExpanded ? Style.CollapseNodeIconClass : Style.ExpandNodeIconClass)"></i>
                 </span>
             }
 
@@ -27,9 +28,9 @@
                 </span>
             </div>
 
-            @if (hasChilds)
+            @if (hasChilds && nodeExpanded)
             {
-                <Tree 
+                <Tree @key="node"
                     Nodes="ChildSelector(node)"
                     TitleTemplate="TitleTemplate" 
                     ChildSelector="ChildSelector"
@@ -40,7 +41,8 @@
                     Visible="nodeExpanded"
                     HasChildNodes="HasChildNodes"
                     Style="Style"
-                    NodeDisabled="NodeDisabled" />
+                    NodeDisabled="NodeDisabled"
+                    OnNodeExpand="OnNodeExpand" />
             }
             
         </div>
@@ -70,19 +72,42 @@
 
     [Parameter] public Func<TNode, bool> NodeDisabled { get; set; } = node => false;
 
-    private void OnToggleNode(TNode node, bool expand)
+    [Parameter] public Func<TNode, Task> OnNodeExpand { get; set; }
+
+    List<TNode> loadingNodes = new List<TNode>();
+
+    private async Task OnToggleNode(TNode node, bool expand)
     {
         var expanded = ExpandedNodes.Contains(node);
 
+        // colapse
         if (expanded && !expand)
         {
+            // remove from expanded list
             ExpandedNodes.Remove(node);
-            ExpandedNodesChanged.InvokeAsync(ExpandedNodes);
+
+            // trigger 'ExpandedNodesChanged'
+            await ExpandedNodesChanged.InvokeAsync(ExpandedNodes);
         }
+
+        // expand
         else if (!expanded && expand)
         {
+            // trigger 'OnNodeExpand'
+            if (OnNodeExpand != null)
+            {
+                loadingNodes.Add(node);
+
+                await OnNodeExpand.Invoke(node);
+
+                loadingNodes.Remove(node);
+            }
+
+            // add to expanded list
             ExpandedNodes.Add(node);
-            ExpandedNodesChanged.InvokeAsync(ExpandedNodes);
+
+            // trigger 'ExpandedNodesChanged'
+            await ExpandedNodesChanged.InvokeAsync(ExpandedNodes);
         }
     }
 

@@ -10,7 +10,8 @@ namespace MW.Blazor
             NodeTitleClass = "p-1",
             NodeTitleSelectableClass = "text-body uic-tree--cursor-pointer",
             NodeTitleSelectedClass = "bg-primary text-white",
-            NodeTitleDisabledClass = "text-black-50"
+            NodeTitleDisabledClass = "text-black-50",
+            NodeLoadingClass = "fas fa-spinner"
         };
 
         public string ExpandNodeIconClass { get; set; }
@@ -19,5 +20,6 @@ namespace MW.Blazor
         public string NodeTitleSelectableClass { get; set; }
         public string NodeTitleSelectedClass { get; set; }
         public string NodeTitleDisabledClass { get; set; }
+        public string NodeLoadingClass { get; set; }
     }
 }

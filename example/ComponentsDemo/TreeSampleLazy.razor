@@ -1,0 +1,35 @@
+﻿
+<Tree Nodes="Items" ChildSelector="node => node.Childs" OnNodeExpand="OnNodeExpand">
+    <TitleTemplate>@context.Text</TitleTemplate>
+</Tree>
+
+@code {
+
+    public class Item
+    {
+        public string Text { get; set; }
+        public IEnumerable<Item> Childs { get; set; }
+    }
+
+    private IEnumerable<Item> CreateChilds(string prefix) =>
+        Enumerable.Range(0, new Random((int)DateTime.Now.Ticks).Next(0, 15))
+        .Select(n => new Item { Text = $"{prefix}.{n}" })
+        .ToArray();
+
+    IEnumerable<Item> Items;
+
+    protected override void OnInitialized()
+    {
+        Items = CreateChilds("Node");
+    }
+
+    async Task OnNodeExpand(Item item)
+    {
+        if (item.Childs == null)
+        {
+            await Task.Delay(500);
+
+            item.Childs = CreateChilds(item.Text);
+        }
+    }
+}
