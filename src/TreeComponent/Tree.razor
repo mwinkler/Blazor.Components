@@ -27,7 +27,7 @@
                 </span>
             </div>
 
-            @if (hasChilds)
+            @if (hasChilds && nodeExpanded)
             {
                 <Tree 
                     Nodes="ChildSelector(node)"
@@ -84,6 +84,8 @@
             ExpandedNodes.Add(node);
             ExpandedNodesChanged.InvokeAsync(ExpandedNodes);
         }
+
+        StateHasChanged();
     }
 
     private void OnSelectNode(TNode node)
