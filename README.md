@@ -38,15 +38,18 @@ See running example: https://blazorcomponents.z6.web.core.windows.net/
 - [x] Generic data support
 - [x] Item templating
 - [x] Styling (Bootstrap/Font Awesome)
-- [ ] Subtree loading indicator (lazy loading)
+- [x] Subtree loading indicator (lazy loading)
 - [x] Disabling selection of nodes
 - [x] Single selection
 - [ ] Multi selection (Checkboxes)
-- [ ] Event population (OnSelect, OnExpand, ...)
+- [x] Event population (OnSelect, OnExpand, ...)
 - [x] Support EventCallback<>
 
 
 **Change Log**
+- 1.3
+  - Add new property 'OnNodeExpand' to handle lazy loading
+  - Add new style 'NodeLoadingClass' to indicate branch loading
 - 1.2
   - Added optional property 'NodeDisabled' to evaluate if node is selectable
   - Added new style class 'NodeTitleSelectableClass' (set if node is selectable)
