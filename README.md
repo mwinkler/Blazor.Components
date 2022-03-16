@@ -26,6 +26,7 @@ See running example: https://blazorcomponents.z6.web.core.windows.net/
 **Client Dependencies**
 ```html
 <link rel="stylesheet" href="_content/MW.Blazor.Tree/styles.css" />
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 ```
 
 [Code example](https://github.com/mwinkler/Blazor.Components/blob/master/example/ComponentsDemo/TreeSample.razor)  
